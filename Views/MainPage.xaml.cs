@@ -1,12 +1,17 @@
-﻿namespace bioscoop_app;
+﻿using Auth0.OidcClient;
+
+namespace bioscoop_app;
 
 public partial class MainPage : ContentPage
 {
     int count = 0;
 
-    public MainPage()
+    private readonly Auth0Client auth0Client;
+    
+    public MainPage(Auth0Client client)
     {
         InitializeComponent();
+        auth0Client = client;   
     }
 
     private void OnCounterClicked(object? sender, EventArgs e)
@@ -19,5 +24,32 @@ public partial class MainPage : ContentPage
             CounterBtn.Text = $"Clicked {count} times";
 
         SemanticScreenReader.Announce(CounterBtn.Text);
+    }
+    
+    private async void OnLoginClicked(object sender, EventArgs e)
+    {
+        var loginResult = await auth0Client.LoginAsync();
+
+        if (!loginResult.IsError)
+        {
+            UsernameLbl.Text = loginResult.User.Identity.Name;
+            UserPictureImg.Source = loginResult.User
+                .Claims.FirstOrDefault(c => c.Type == "picture")?.Value;
+            
+            LoginView.IsVisible = false;
+            HomeView.IsVisible = true;
+        }
+        else
+        {
+            await DisplayAlert("Error", loginResult.ErrorDescription, "OK");
+        }
+    }
+    
+    private async void OnLogoutClicked(object sender, EventArgs e)
+    {
+        var logoutResult = await auth0Client.LogoutAsync();
+
+        HomeView.IsVisible = false;
+        LoginView.IsVisible = true;
     }
 }
