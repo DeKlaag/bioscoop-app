@@ -1,5 +1,6 @@
 using Auth0.OidcClient;
 using bioscoop_app.Services;
+using bioscoop_app.ViewModels;
 
 namespace bioscoop_app;
 
@@ -7,15 +8,17 @@ public partial class MainPage : ContentPage
 {
     private readonly Auth0Client auth0Client;
     private readonly IUserSession session;
+    private readonly MoviesViewModel _vm;
 
-    public MainPage(Auth0Client client, IUserSession session)
+    public MainPage(Auth0Client client, IUserSession session, MoviesViewModel moviesViewModel)
     {
         InitializeComponent();
         auth0Client = client;
         this.session = session;
+        BindingContext = _vm = moviesViewModel;
     }
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
         base.OnAppearing();
 
@@ -24,6 +27,9 @@ public partial class MainPage : ContentPage
         {
             UsernameLbl.Text = identity.Name;
         }
+        
+        if (_vm.Movies.Count == 0)
+            await _vm.LoadCommand.ExecuteAsync(null);
     }
 
     private async void OnLogoutClicked(object sender, EventArgs e)

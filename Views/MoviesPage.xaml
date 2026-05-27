@@ -6,36 +6,30 @@
              x:Class="bioscoop_app.Views.MoviesPage"
              x:DataType="vm:MoviesViewModel"
              Title="Movies">
-
-    <Grid RowDefinitions="Auto,*" Padding="12">
-
-        <Label Grid.Row="0"
-               Text="{Binding ErrorMessage}"
-               TextColor="Red" />
-
-        <RefreshView Grid.Row="1"
-                     IsRefreshing="{Binding IsBusy}"
-                     Command="{Binding LoadCommand}">
-            <CollectionView ItemsSource="{Binding Movies}"
-                            EmptyView="No movies yet — pull to refresh.">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="models:MovieModel">
-                        <Grid Padding="0,8" ColumnDefinitions="80,*" ColumnSpacing="12">
-                            <Image Grid.Column="0"
-                                   Source="{Binding ImageUrl}"
-                                   Aspect="AspectFill"
-                                   HeightRequest="80"
-                                   WidthRequest="80" />
-                            <Label Grid.Column="1"
-                                   Text="{Binding Title}"
-                                   FontAttributes="Bold"
-                                   VerticalOptions="Center" />
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </RefreshView>
-
-    </Grid>
-
+    <RefreshView IsRefreshing="{Binding IsBusy}"
+                 Command="{Binding LoadCommand}">
+        <CollectionView x:Name="collectionView"
+                        Margin="20"
+                        ItemsSource="{Binding Movies}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 Span="2"
+                                 HorizontalItemSpacing="12"
+                                 VerticalItemSpacing="12" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:MovieModel">
+                    <VerticalStackLayout Padding="8" Spacing="6">
+                        <Image Source="{Binding ImageUrl}"
+                               Aspect="AspectFill"
+                               HeightRequest="180" />
+                        <Label Text="{Binding Title}"
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Start" />
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
 </ContentPage>

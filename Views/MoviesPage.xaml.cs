@@ -6,10 +6,10 @@ public partial class MoviesPage : ContentPage
 {
     private readonly MoviesViewModel _vm;
 
-    public MoviesPage(MoviesViewModel vm)
+    public MoviesPage(MoviesViewModel moviesViewModel)
     {
         InitializeComponent();
-        BindingContext = _vm = vm;
+        BindingContext = _vm = moviesViewModel;
     }
 
     protected override async void OnAppearing()

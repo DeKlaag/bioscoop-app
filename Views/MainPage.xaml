@@ -1,25 +1,56 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:bioscoop_app.ViewModels"
+             xmlns:models="clr-namespace:bioscoop_app.Models"
              x:Class="bioscoop_app.MainPage"
+             x:DataType="vm:MoviesViewModel"
              Title="Home">
     <ScrollView>
-        <StackLayout Padding="30,0" Spacing="25">
-            <Label
-                x:Name="UsernameLbl"
-                Text=""
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="User's name"
-                FontSize="18"
-                HorizontalOptions="Center" />
+      <VerticalStackLayout>
 
-            <Button
-                x:Name="LogoutBtn"
-                Text="Log Out"
-                SemanticProperties.Hint="Click to log out"
-                Clicked="OnLogoutClicked"
-                HorizontalOptions="Center" />
-        </StackLayout>
+        <VerticalStackLayout Padding="30,20" Spacing="25">
+            <Label x:Name="UsernameLbl"
+                   Text=""
+                   SemanticProperties.HeadingLevel="Level2"
+                   SemanticProperties.Description="User's name"
+                   FontSize="18"
+                   HorizontalOptions="Center" />
+            <Button x:Name="LogoutBtn"
+                    Text="Log Out"
+                    SemanticProperties.Hint="Click to log out"
+                    Clicked="OnLogoutClicked"
+                    HorizontalOptions="Center" />
+        </VerticalStackLayout>
+
+        <RefreshView IsRefreshing="{Binding IsBusy}"
+                     Command="{Binding LoadCommand}">
+            <CollectionView x:Name="collectionView"
+                            Margin="20"
+                            ItemsSource="{Binding Movies}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                     Span="2"
+                                     HorizontalItemSpacing="12"
+                                     VerticalItemSpacing="12" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:MovieModel">
+                        <VerticalStackLayout Padding="8" Spacing="6">
+                            <Image Source="{Binding ImageUrl}"
+                                   Aspect="AspectFit"
+                                   HeightRequest="250" />
+                            <Label Text="{Binding Title}"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Start" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+
+      </VerticalStackLayout>
     </ScrollView>
 
 </ContentPage>
