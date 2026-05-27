@@ -8,6 +8,24 @@
     FlyoutBehavior="Disabled"
     Title="bioscoop_app">
 
+    <Shell.TitleView>
+        <FlexLayout Direction="Row"
+                    JustifyContent="SpaceBetween"
+                    AlignItems="Center">
+            <Label Text="Pathe Eindhoven"
+                   FontSize="20"
+                   TextColor="White"
+                   VerticalOptions="Center" />
+            <ImageButton x:Name="UserPictureImg"
+                         SemanticProperties.Description="User's picture"
+                         HeightRequest="36"
+                         WidthRequest="36"
+                         CornerRadius="22"
+                         Aspect="AspectFill"
+                         BackgroundColor="Transparent" />
+        </FlexLayout>
+    </Shell.TitleView>
+
     <ShellContent
         Route="LoginPage"
         ContentTemplate="{DataTemplate views:LoginPage}" />
