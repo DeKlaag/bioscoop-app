@@ -11,7 +11,10 @@
           
           <SearchBar HorizontalOptions="Fill"
                      Placeholder="Search movies"
-                     Text="{Binding SearchText}" />
+                     Text="{Binding SearchText}"
+                     BackgroundColor="Transparent"
+                     HeightRequest="56"
+                     Margin="12,16,12,4"/>
 
           <RefreshView IsRefreshing="{Binding IsBusy}"
                        Command="{Binding LoadCommand}">

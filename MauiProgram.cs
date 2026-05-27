@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.Maui.Handlers;
 using Auth0.OidcClient;
 using bioscoop_app.Services;
 using bioscoop_app.ViewModels;
@@ -18,6 +19,15 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
+
+#if IOS || MACCATALYST
+        SearchBarHandler.Mapper.AppendToMapping("NoNativeBackground", (handler, _) =>
+        {
+            handler.PlatformView.BarTintColor = UIKit.UIColor.Clear;
+            handler.PlatformView.BackgroundImage = new UIKit.UIImage();
+            handler.PlatformView.SearchTextField.BackgroundColor = UIKit.UIColor.Clear;
+        });
+#endif
 
 #if DEBUG
         builder.Logging.AddDebug();
