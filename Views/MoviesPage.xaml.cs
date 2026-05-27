@@ -15,7 +15,6 @@ public partial class MoviesPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
-        if (_vm.Movies.Count == 0)
-            await _vm.LoadCommand.ExecuteAsync(null);
+        await _vm.LoadCommand.ExecuteAsync(null);
     }
 }

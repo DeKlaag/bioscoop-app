@@ -16,7 +16,6 @@ public partial class MainPage : ContentPage
     {
         base.OnAppearing();
 
-        if (_vm.Movies.Count == 0)
-            await _vm.LoadCommand.ExecuteAsync(null);
+        await _vm.LoadCommand.ExecuteAsync(null);
     }
 }
