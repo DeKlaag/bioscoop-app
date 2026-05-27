@@ -22,13 +22,18 @@
                          WidthRequest="36"
                          CornerRadius="22"
                          Aspect="AspectFill"
-                         BackgroundColor="Transparent" />
+                         BackgroundColor="Transparent" 
+                         Clicked="UserPictureImg_OnClicked"/>
         </FlexLayout>
     </Shell.TitleView>
 
     <ShellContent
         Route="LoginPage"
         ContentTemplate="{DataTemplate views:LoginPage}" />
+    
+    <ShellContent
+        Route="ProfilePage"
+        ContentTemplate="{DataTemplate views:ProfilePage}" />
 
     <TabBar Route="Tabs">
         <ShellContent

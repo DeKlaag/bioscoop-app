@@ -25,6 +25,7 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<LoginPage>();
+        builder.Services.AddSingleton<ProfilePage>();
 
         builder.Services.AddSingleton<IUserSession, UserSession>();
         builder.Services.AddSingleton<IMovieService, MovieService>();
