@@ -10,8 +10,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d76daa41-e172-4ec9-931a-41abbcf62149" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MainPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainPage.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MoviesPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MoviesPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/MoviesViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/MoviesViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MainPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainPage.xaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +107,7 @@
       <workItem from="1778595370282" duration="593000" />
       <workItem from="1778595985918" duration="45000" />
       <workItem from="1779803623063" duration="914000" />
-      <workItem from="1779806277974" duration="16889000" />
+      <workItem from="1779806277974" duration="17363000" />
     </task>
     <task id="LOCAL-00001" summary="added 0auth">
       <option name="closed" value="true" />
@@ -165,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779915854404</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="refresh on pageload">
+      <option name="closed" value="true" />
+      <created>1779917078075</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1779917078075</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,7 +201,8 @@
     <MESSAGE value="mainpage with movies" />
     <MESSAGE value="colors and styles" />
     <MESSAGE value="profile" />
-    <option name="LAST_COMMIT_MESSAGE" value="profile" />
+    <MESSAGE value="refresh on pageload" />
+    <option name="LAST_COMMIT_MESSAGE" value="refresh on pageload" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

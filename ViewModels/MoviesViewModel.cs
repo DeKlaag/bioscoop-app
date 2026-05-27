@@ -9,6 +9,7 @@ namespace bioscoop_app.ViewModels;
 public partial class MoviesViewModel : ObservableObject
 {
     private readonly IMovieService _movieService;
+    private readonly List<MovieModel> _allMovies = [];
 
     public ObservableCollection<MovieModel> Movies { get; } = [];
 
@@ -17,6 +18,11 @@ public partial class MoviesViewModel : ObservableObject
 
     [ObservableProperty]
     private string? _errorMessage;
+
+    [ObservableProperty]
+    private string? _searchText;
+
+    partial void OnSearchTextChanged(string? value) => ApplyFilter();
 
     public MoviesViewModel(IMovieService movieService)
     {
@@ -34,9 +40,9 @@ public partial class MoviesViewModel : ObservableObject
 
             var movies = await _movieService.GetMoviesAsync();
 
-            Movies.Clear();
-            foreach (var m in movies)
-                Movies.Add(m);
+            _allMovies.Clear();
+            _allMovies.AddRange(movies);
+            ApplyFilter();
         }
         catch (Exception ex)
         {
@@ -46,5 +52,16 @@ public partial class MoviesViewModel : ObservableObject
         {
             IsBusy = false;
         }
+    }
+
+    private void ApplyFilter()
+    {
+        Movies.Clear();
+        var query = SearchText?.Trim();
+        var filtered = string.IsNullOrEmpty(query)
+            ? _allMovies
+            : _allMovies.Where(m => m.Title?.Contains(query, StringComparison.OrdinalIgnoreCase) == true);
+        foreach (var m in filtered)
+            Movies.Add(m);
     }
 }

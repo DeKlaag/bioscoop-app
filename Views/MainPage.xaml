@@ -8,9 +8,13 @@
              Title="Home">
     <ScrollView>
       <VerticalStackLayout>
+          
+          <SearchBar HorizontalOptions="Fill"
+                     Placeholder="Search movies"
+                     Text="{Binding SearchText}" />
 
-        <RefreshView IsRefreshing="{Binding IsBusy}"
-                     Command="{Binding LoadCommand}">
+          <RefreshView IsRefreshing="{Binding IsBusy}"
+                       Command="{Binding LoadCommand}">
             <CollectionView x:Name="collectionView"
                             Margin="20"
                             ItemsSource="{Binding Movies}">
