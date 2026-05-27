@@ -10,10 +10,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d76daa41-e172-4ec9-931a-41abbcf62149" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MainPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MainPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainPage.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MoviesPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MoviesPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MoviesPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MoviesPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Styles/Colors.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Styles/Colors.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/Styles/Styles.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Styles/Styles.xaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +36,9 @@
     &quot;accountId&quot;: &quot;7d23ca99-2555-49a4-95ea-b441e9c148e9&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a4a74455bc2c18eb52a6b63db8013218e38cc8e695af787044e66b471af19a/ArgumentNullException.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -105,7 +106,7 @@
       <workItem from="1778595370282" duration="593000" />
       <workItem from="1778595985918" duration="45000" />
       <workItem from="1779803623063" duration="914000" />
-      <workItem from="1779806277974" duration="12891000" />
+      <workItem from="1779806277974" duration="13535000" />
     </task>
     <task id="LOCAL-00001" summary="added 0auth">
       <option name="closed" value="true" />
@@ -139,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779910302208</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="mainpage with movies">
+      <option name="closed" value="true" />
+      <created>1779913023845</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1779913023845</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,7 +173,8 @@
     <MESSAGE value="feat: main view changes" />
     <MESSAGE value="feat: added REST API and vars for testing on phone" />
     <MESSAGE value="feat: standart top bar" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: standart top bar" />
+    <MESSAGE value="mainpage with movies" />
+    <option name="LAST_COMMIT_MESSAGE" value="mainpage with movies" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -180,6 +190,12 @@
         <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
+        </breakpoint>
+        <breakpoint enabled="true" type="DotNet_Exception_Breakpoints">
+          <properties exception="System.ArgumentNullException" breakIfHandledByUserCode="true" breakIfUnhandled="false" isInternal="false" displayValue="ArgumentNullException" namespaceName="System">
+            <option name="internal" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
