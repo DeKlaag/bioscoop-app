@@ -1,5 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 using Auth0.OidcClient;
+using bioscoop_app.Services;
+using bioscoop_app.ViewModels;
+using bioscoop_app.Views;
 
 namespace bioscoop_app;
 
@@ -21,6 +24,12 @@ public static class MauiProgram
 #endif
 
         builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddSingleton<LoginPage>();
+
+        builder.Services.AddSingleton<IUserSession, UserSession>();
+        builder.Services.AddSingleton<IMovieService, MovieService>();
+        builder.Services.AddSingleton<MoviesViewModel>();
+        builder.Services.AddSingleton<MoviesPage>();
 
         builder.Services.AddSingleton(new Auth0Client(new()
         {
