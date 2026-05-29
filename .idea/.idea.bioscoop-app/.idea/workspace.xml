@@ -9,15 +9,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d76daa41-e172-4ec9-931a-41abbcf62149" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Models/HallModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/ScreeningModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/IScreeningService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/ScreeningService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/MovieScreenings.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/MovieScreenings.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppShell.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Constants.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/MovieModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/MovieModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/IMovieService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/IMovieService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/MovieService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/MovieService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/MoviesViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/MoviesViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MainPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/MovieDetailViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/MovieDetailViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MovieDetailPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MovieDetailPage.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bioscoop-app.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/bioscoop-app.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bioscoop-app.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/bioscoop-app.sln.DotSettings.user" afterDir="false" />
     </list>
@@ -52,11 +55,23 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5df2804d9fa8c56479707b3d037182db6522bb9f698353881bcd241aa82d666/Runtime.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5f307275a09f4652c074246cce9420af895f92d9103b645a79b865bd685ba2c/Dispatch.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/69bfd81566709f10b69448d5cda2abd91166c484dddb672fb83adb73d5465160/ExpandMarkupsVisitor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/79bf4a085f1d655a12edbedb7bcb3651ff1269/Views_MovieScreenings.xaml.sg.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a4a74455bc2c18eb52a6b63db8013218e38cc8e695af787044e66b471af19a/ArgumentNullException.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b135a2f06e76e0252c94c361dc86a3abec85eb35273d68665bf6fa2d2ce05e/MarkupExpressionParser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/dddd0918873795d3d69f4970548832030206d2b721b835d6e41a19023f2f/Dispatcher.iOS.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/HallModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/ScreeningModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Services/IScreeningService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Services/ScreeningService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/MovieScreenings.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/ProfilePage.xaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file:///var/folders/n9/crw170gj6dvg075_4gcyct2h0000gn/T/SourceGeneratedDocuments/5752D842AE82368B812B1414/CommunityToolkit.Mvvm.SourceGenerators/CommunityToolkit.Mvvm.SourceGenerators.RelayCommandGenerator/bioscoop_app.ViewModels.MoviesViewModel.SelectMovieAsync.g.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file:///var/folders/n9/crw170gj6dvg075_4gcyct2h0000gn/T/SourceGeneratedDocuments/5752D842AE82368B812B1414/Microsoft.Maui.Controls.SourceGen/Microsoft.Maui.Controls.SourceGen.XamlGenerator/Views_LoginPage.xaml.xsg.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -84,7 +99,7 @@
     "git-widget-placeholder": "main",
     "iOS.bioscoop-app.executor": "Run",
     "junie.onboarding.icon.badge.shown": "true",
-    "macOS.bioscoop-app.executor": "Debug",
+    "macOS.bioscoop-app.executor": "Run",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -206,7 +221,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780079356668</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Movie info page">
+      <option name="closed" value="true" />
+      <created>1780084193067</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1780084193067</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,7 +260,8 @@
     <MESSAGE value="refresh on pageload" />
     <MESSAGE value="zoeken" />
     <MESSAGE value="added auto login" />
-    <option name="LAST_COMMIT_MESSAGE" value="added auto login" />
+    <MESSAGE value="Movie info page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Movie info page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

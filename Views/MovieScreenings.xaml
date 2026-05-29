@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:bioscoop_app.ViewModels"
+             xmlns:models="clr-namespace:bioscoop_app.Models"
+             x:Class="bioscoop_app.Views.MovieScreenings"
+             x:DataType="vm:MovieScreeningsViewModel"
+             Shell.TabBarIsVisible="False"
+             Title="Voorstellingen">
+    <ScrollView>
+        <StackLayout Margin="20, 0">
+            <Label Text="{Binding MovieTitle, StringFormat='Voorstellingen van {0}'}"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Start"
+                   HorizontalTextAlignment="Start" 
+                   Margin="0, 20"/>
+            <CollectionView ItemsSource="{Binding Screenings}">
+                <CollectionView.EmptyView>
+                    <Label Text="Geen voorstellingen gevonden."
+                           Padding="20"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:ScreeningModel">
+                        <Border Padding="16"
+                                Margin="0,8"
+                                StrokeThickness="0"
+                                BackgroundColor="{StaticResource Primary}">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="12" />
+                            </Border.StrokeShape>
+                            <VerticalStackLayout Spacing="4">
+                                <Label Text="{Binding StartTime, StringFormat='{0:dddd d MMMM yyyy HH:mm}'}"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="Black" />
+                                <Label Text="{Binding Hall.LayoutType, StringFormat='Zaal - {0}'}"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="Black" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

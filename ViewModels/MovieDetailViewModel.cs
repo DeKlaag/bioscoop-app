@@ -1,6 +1,8 @@
 using bioscoop_app.Models;
 using bioscoop_app.Services;
+using bioscoop_app.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace bioscoop_app.ViewModels;
 
@@ -29,5 +31,12 @@ public partial class MovieDetailViewModel : ObservableObject
     private async Task LoadAsync(Guid id)
     {
         Movie = await _movieService.GetMovieByIdAsync(id);
+    }
+
+    [RelayCommand]
+    private async Task GoToScreeningsAsync()
+    {
+        if (Movie is null) return;
+        await Shell.Current.GoToAsync($"{nameof(MovieScreenings)}?id={Movie.ID}");
     }
 }

@@ -73,7 +73,8 @@
             
             <Button
                 Text="Bekijk voorstellingen"
-                Margin="0,20,0,0"/>
+                Margin="0,20,0,0"
+                Command="{Binding GoToScreeningsCommand}" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

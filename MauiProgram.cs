@@ -39,10 +39,13 @@ public static class MauiProgram
 
         builder.Services.AddSingleton<IUserSession, UserSession>();
         builder.Services.AddSingleton<IMovieService, MovieService>();
+        builder.Services.AddSingleton<IScreeningService, ScreeningService>();
         builder.Services.AddSingleton<MoviesViewModel>();
         builder.Services.AddSingleton<MoviesPage>();
         builder.Services.AddTransient<MovieDetailViewModel>();
         builder.Services.AddTransient<MovieDetailPage>();
+        builder.Services.AddTransient<MovieScreeningsViewModel>();
+        builder.Services.AddTransient<MovieScreenings>();
 
         builder.Services.AddSingleton(new Auth0Client(new()
         {
