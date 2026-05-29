@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Auth0.OidcClient;
 using bioscoop_app.Services;
 
@@ -24,6 +25,8 @@ public partial class LoginPage : ContentPage
             return;
         }
         _session.User = result.User;
+        Debug.WriteLine($"[LoginPage] login ok; refresh token {(string.IsNullOrEmpty(result.RefreshToken) ? "MISSING (check offline_access + Refresh Token grant)" : "received")}");
+        await _session.SaveAsync(result.RefreshToken);
         await Shell.Current.GoToAsync("//Tabs/MainPage");
     }
 }

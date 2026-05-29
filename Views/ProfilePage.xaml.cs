@@ -31,7 +31,7 @@ public partial class ProfilePage
     private async void OnLogoutClicked(object sender, EventArgs e)
     {
         await _auth0Client.LogoutAsync();
-        _session.User = null;
+        _session.Clear();
         await Shell.Current.GoToAsync("//LoginPage");
     }
 }

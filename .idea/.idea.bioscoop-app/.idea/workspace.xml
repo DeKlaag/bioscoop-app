@@ -10,8 +10,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d76daa41-e172-4ec9-931a-41abbcf62149" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MainPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MainPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/UserSession.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/UserSession.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/LoginPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/LoginPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/ProfilePage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/ProfilePage.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

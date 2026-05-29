@@ -48,7 +48,7 @@ public static class MauiProgram
             ClientId = "ed1vutKp8l18pzEEbaa10j6XEFetQE8x",
             RedirectUri = "myapp://callback/",
             PostLogoutRedirectUri = "myapp://callback/",
-            Scope = "openid profile email"
+            Scope = "openid profile email offline_access"
         }));
         
         return builder.Build();

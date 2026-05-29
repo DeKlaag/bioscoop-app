@@ -12,7 +12,7 @@
         <FlexLayout Direction="Row"
                     JustifyContent="SpaceBetween"
                     AlignItems="Center">
-            <Label Text="Pathe Eindhoven"
+            <Label Text="Pathe"
                    FontSize="20"
                    TextColor="White"
                    VerticalOptions="Center" />
