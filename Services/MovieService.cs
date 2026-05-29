@@ -19,11 +19,17 @@ public class MovieService : IMovieService
         };
     }
 
+    public async Task<MovieModel?> GetMovieByIdAsync(Guid id)
+    {
+        var movies = await GetMoviesAsync();
+        return movies.FirstOrDefault(m => m.ID == id);
+    }
+
     public async Task<List<MovieModel>> GetMoviesAsync()
     {
         try
         {
-            using var response = await _http.GetAsync(Constants.MoviesUrl);
+            using var response = await _http.GetAsync(Constants.UpcomingMoviesUrl);
             if (!response.IsSuccessStatusCode)
             {
                 Debug.WriteLine($"GET {Constants.MoviesUrl} -> {(int)response.StatusCode}");

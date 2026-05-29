@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using bioscoop_app.Models;
 using bioscoop_app.Services;
+using bioscoop_app.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
@@ -52,6 +53,13 @@ public partial class MoviesViewModel : ObservableObject
         {
             IsBusy = false;
         }
+    }
+
+    [RelayCommand]
+    private async Task SelectMovieAsync(MovieModel? movie)
+    {
+        if (movie is null) return;
+        await Shell.Current.GoToAsync($"{nameof(MovieDetailPage)}?id={movie.ID}");
     }
 
     private void ApplyFilter()

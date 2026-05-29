@@ -29,7 +29,12 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:MovieModel">
-                        <VerticalStackLayout Padding="8" Spacing="6">
+                        <VerticalStackLayout Padding="8" Spacing="6" >
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={x:Reference collectionView}, Path=BindingContext.SelectMovieCommand}"
+                                    CommandParameter="{Binding .}" />
+                            </VerticalStackLayout.GestureRecognizers>
                             <Image Source="{Binding ImageUrl}"
                                    Aspect="AspectFit"
                                    HeightRequest="250" />

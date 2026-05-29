@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:bioscoop_app.ViewModels"
+             x:Class="bioscoop_app.Views.MovieDetailPage"
+             x:DataType="vm:MovieDetailViewModel"
+             Shell.TabBarIsVisible="False"
+             Title="{Binding Movie.Title}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+            <VerticalStackLayout>
+                <Image Source="{Binding Movie.ImageUrl}"
+                       Aspect="AspectFill"
+                       HeightRequest="400" />
+                
+                <Label Text="{Binding Movie.Title}"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Start"
+                       HorizontalTextAlignment="Start" />
+            </VerticalStackLayout>
+            
+            <FlexLayout Wrap="Wrap">
+                <Border BackgroundColor="{StaticResource Primary}"
+                        Padding="10,5,10,5"
+                        Margin="0,0,8,8"
+                        HorizontalOptions="Start"
+                        StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12" />
+                    </Border.StrokeShape>
+                    <Label Text="{Binding Movie.DurationMinutes}"
+                           FontSize="16"
+                           TextColor="Black"
+                           HorizontalTextAlignment="Start"
+                           FontAttributes="Bold"/>
+                </Border>
+                <Border BackgroundColor="{StaticResource Primary}"
+                        Padding="10,5,10,5"
+                        Margin="0,0,8,8"
+                        HorizontalOptions="Start"
+                        StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12" />
+                    </Border.StrokeShape>
+                    <Label Text="{Binding Movie.Genre}"
+                           FontSize="16"
+                           TextColor="Black"
+                           HorizontalTextAlignment="Start"
+                           FontAttributes="Bold"/>
+                </Border>
+                <Border BackgroundColor="{StaticResource Primary}"
+                        Padding="10,5,10,5"
+                        Margin="0,0,8,8"
+                        HorizontalOptions="Start"
+                        StrokeThickness="0">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="12" />
+                    </Border.StrokeShape>
+                    <Label Text="{Binding Movie.Age}"
+                           FontSize="16"
+                           TextColor="Black"
+                           HorizontalTextAlignment="Start"
+                           FontAttributes="Bold"/>
+                </Border>
+            </FlexLayout>
+            
+            <Label Text="{Binding Movie.Description}"
+                   FontSize="16"
+                   HorizontalOptions="Start"
+                   HorizontalTextAlignment="Start" />
+            
+            <Button
+                Text="Bekijk voorstellingen"
+                Margin="0,20,0,0"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
