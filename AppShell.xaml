@@ -41,9 +41,9 @@
             ContentTemplate="{DataTemplate local:MainPage}"
             Route="MainPage" />
         <ShellContent
-            Title="Movies"
-            ContentTemplate="{DataTemplate views:MoviesPage}"
-            Route="MoviesPage" />
+            Title="Kaart"
+            ContentTemplate="{DataTemplate views:MapPage}"
+            Route="MapPage" />
     </TabBar>
 
 </Shell>

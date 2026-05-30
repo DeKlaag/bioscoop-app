@@ -9,20 +9,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d76daa41-e172-4ec9-931a-41abbcf62149" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Models/HallModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Models/ScreeningModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/IScreeningService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/ScreeningService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/MovieScreenings.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/MovieScreenings.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/MapPage.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/MapPage.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppShell.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppShell.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/MovieDetailViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/MovieDetailViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MovieDetailPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MovieDetailPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platforms/MacCatalyst/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Platforms/MacCatalyst/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platforms/iOS/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Platforms/iOS/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bioscoop-app.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/bioscoop-app.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioscoop-app.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/bioscoop-app.sln.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +57,7 @@
     <setting file="file://$PROJECT_DIR$/Models/ScreeningModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/IScreeningService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/ScreeningService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/MapPage.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/MovieScreenings.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/ProfilePage.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file:///var/folders/n9/crw170gj6dvg075_4gcyct2h0000gn/T/SourceGeneratedDocuments/5752D842AE82368B812B1414/CommunityToolkit.Mvvm.SourceGenerators/CommunityToolkit.Mvvm.SourceGenerators.RelayCommandGenerator/bioscoop_app.ViewModels.MoviesViewModel.SelectMovieAsync.g.cs" root0="FORCE_HIGHLIGHTING" />
@@ -99,7 +94,7 @@
     "git-widget-placeholder": "main",
     "iOS.bioscoop-app.executor": "Run",
     "junie.onboarding.icon.badge.shown": "true",
-    "macOS.bioscoop-app.executor": "Run",
+    "macOS.bioscoop-app.executor": "Debug",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -110,7 +105,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="iOS.bioscoop-app">
+  <component name="RunManager" selected="macOS.bioscoop-app">
     <configuration name="bioscoop-app" type="XamarinIOSProject" factoryName="Xamarin.iOS">
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/bioscoop-app.csproj" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -229,7 +224,23 @@
       <option name="project" value="LOCAL" />
       <updated>1780084193067</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="screenings van een film">
+      <option name="closed" value="true" />
+      <created>1780091438010</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1780091438010</updated>
+    </task>
+    <task id="LOCAL-00013" summary="screenings van een film">
+      <option name="closed" value="true" />
+      <created>1780091448475</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1780091448475</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -261,7 +272,8 @@
     <MESSAGE value="zoeken" />
     <MESSAGE value="added auto login" />
     <MESSAGE value="Movie info page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Movie info page" />
+    <MESSAGE value="screenings van een film" />
+    <option name="LAST_COMMIT_MESSAGE" value="screenings van een film" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
