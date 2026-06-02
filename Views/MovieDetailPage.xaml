@@ -9,17 +9,22 @@
              Title="{Binding Movie.Title}">
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="16">
-            <VerticalStackLayout>
-                <Image Source="{Binding Movie.ImageUrl}"
-                       Aspect="AspectFill"
-                       HeightRequest="400" />
-                
+            <Image Source="{Binding Movie.ImageUrl}"
+                   Aspect="AspectFill"
+                   HeightRequest="400" />
+            <FlexLayout JustifyContent="SpaceBetween"
+                        AlignItems="Center"
+                        Margin="0, 20">
                 <Label Text="{Binding Movie.Title}"
-                       FontSize="24"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Start"
-                       HorizontalTextAlignment="Start" />
-            </VerticalStackLayout>
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Start"
+                   HorizontalTextAlignment="Start" />
+                
+                <Button
+                    Text="{Binding FavoriteButtonText}"
+                    Command="{Binding ToggleFavoriteCommand}" />
+            </FlexLayout>
             
             <FlexLayout Wrap="Wrap">
                 <Border BackgroundColor="{StaticResource Primary}"
@@ -30,7 +35,7 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="12" />
                     </Border.StrokeShape>
-                    <Label Text="{Binding Movie.DurationMinutes}"
+                    <Label Text="{Binding Movie.DurationMinutes, StringFormat='{0}m'}"
                            FontSize="16"
                            TextColor="Black"
                            HorizontalTextAlignment="Start"
@@ -58,7 +63,7 @@
                     <Border.StrokeShape>
                         <RoundRectangle CornerRadius="12" />
                     </Border.StrokeShape>
-                    <Label Text="{Binding Movie.Age}"
+                    <Label Text="{Binding Movie.Age, StringFormat='{0}+'}"
                            FontSize="16"
                            TextColor="Black"
                            HorizontalTextAlignment="Start"
@@ -75,6 +80,7 @@
                 Text="Bekijk voorstellingen"
                 Margin="0,20,0,0"
                 Command="{Binding GoToScreeningsCommand}" />
+            
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

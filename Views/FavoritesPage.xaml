@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:bioscoop_app.ViewModels"
+             xmlns:models="clr-namespace:bioscoop_app.Models"
+             x:Class="bioscoop_app.Views.FavoritesPage"
+             x:DataType="vm:FavoritesViewModel"
+             Title="Favorieten">
+    <ScrollView>
+      <VerticalStackLayout>
+
+          <RefreshView IsRefreshing="{Binding IsBusy}"
+                       Command="{Binding LoadCommand}">
+            <CollectionView x:Name="collectionView"
+                            Margin="20"
+                            ItemsSource="{Binding Movies}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                     Span="2"
+                                     HorizontalItemSpacing="12"
+                                     VerticalItemSpacing="12" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.EmptyView>
+                    <Label Text="Nog geen favorieten. Markeer een film als favoriet op de detailpagina."
+                           HorizontalTextAlignment="Center"
+                           Margin="20" />
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:MovieModel">
+                        <VerticalStackLayout Padding="8" Spacing="6" >
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={x:Reference collectionView}, Path=BindingContext.SelectMovieCommand}"
+                                    CommandParameter="{Binding .}" />
+                            </VerticalStackLayout.GestureRecognizers>
+                            <Image Source="{Binding ImageUrl}"
+                                   Aspect="AspectFit"
+                                   HeightRequest="250" />
+                            <Label Text="{Binding Title}"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Center"
+                                   HorizontalTextAlignment="Start" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+
+      </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -10,6 +10,7 @@ namespace bioscoop_app.ViewModels;
 public partial class MovieDetailViewModel : ObservableObject
 {
     private readonly IMovieService _movieService;
+    private readonly IFavoritesService _favoritesService;
 
     [ObservableProperty]
     private string? _movieId;
@@ -17,9 +18,17 @@ public partial class MovieDetailViewModel : ObservableObject
     [ObservableProperty]
     private MovieModel? _movie;
 
-    public MovieDetailViewModel(IMovieService movieService)
+    [ObservableProperty]
+    private bool _isFavorite;
+
+    public string FavoriteButtonText => IsFavorite ? "★" : "☆";
+
+    partial void OnIsFavoriteChanged(bool value) => OnPropertyChanged(nameof(FavoriteButtonText));
+
+    public MovieDetailViewModel(IMovieService movieService, IFavoritesService favoritesService)
     {
         _movieService = movieService;
+        _favoritesService = favoritesService;
     }
 
     partial void OnMovieIdChanged(string? value)
@@ -31,6 +40,15 @@ public partial class MovieDetailViewModel : ObservableObject
     private async Task LoadAsync(Guid id)
     {
         Movie = await _movieService.GetMovieByIdAsync(id);
+        IsFavorite = _favoritesService.IsFavorite(id);
+    }
+
+    [RelayCommand]
+    private void ToggleFavorite()
+    {
+        if (Movie is null) return;
+        _favoritesService.Toggle(Movie.ID);
+        IsFavorite = _favoritesService.IsFavorite(Movie.ID);
     }
 
     [RelayCommand]

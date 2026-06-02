@@ -41,6 +41,10 @@
             ContentTemplate="{DataTemplate local:MainPage}"
             Route="MainPage" />
         <ShellContent
+            Title="Favorieten"
+            ContentTemplate="{DataTemplate views:FavoritesPage}"
+            Route="FavoritesPage" />
+        <ShellContent
             Title="Kaart"
             ContentTemplate="{DataTemplate views:MapPage}"
             Route="MapPage" />
