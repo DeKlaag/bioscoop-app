@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:bioscoop_app.ViewModels"
+             xmlns:model="clr-namespace:bioscoop_app.Models"
+             x:Class="bioscoop_app.Views.PaymentPage"
+             x:DataType="vm:PaymentViewModel"
+             Shell.TabBarIsVisible="False"
+             Title="Betalen">
+    <ScrollView>
+        <VerticalStackLayout Margin="20" Spacing="16">
+
+            <Label Text="{Binding Screening.Movie.Title}"
+                   FontSize="20"
+                   FontAttributes="Bold" />
+
+            <HorizontalStackLayout Spacing="20">
+                <Label Text="{Binding Screening.Hall.Number, StringFormat='Zaal - {0}'}"
+                       FontSize="16"
+                       FontAttributes="Bold" />
+                <Label Text="{Binding Screening.StartTime, StringFormat='Start tijd:{0: HH:mm}'}"
+                       FontSize="16"
+                       FontAttributes="Bold" />
+            </HorizontalStackLayout>
+
+            <Label Text="{Binding SeatCount, StringFormat='Gekozen stoelen ({0})'}"
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   Margin="0,8,0,0" />
+
+            <!-- Lijst van de gekozen stoelen, elk met een eigen tarief-dropdown -->
+            <VerticalStackLayout BindableLayout.ItemsSource="{Binding SeatSelections}" Spacing="0">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="vm:SeatTariffSelection">
+                        <Border Padding="12,10"
+                                Margin="0,0,0,8"
+                                StrokeThickness="0"
+                                BackgroundColor="{StaticResource SurfaceContainerHigh}">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="8" />
+                            </Border.StrokeShape>
+                            <Grid ColumnDefinitions="Auto,*,Auto"
+                                  ColumnSpacing="12"
+                                  VerticalOptions="Center">
+                                <Label Grid.Column="0" VerticalOptions="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Rij " />
+                                            <Span Text="{Binding Seat.RowLabel}"
+                                                  FontAttributes="Bold" />
+                                            <Span Text="  ·  Stoel " />
+                                            <Span Text="{Binding Seat.Label}"
+                                                  FontAttributes="Bold" />
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+
+                                <Picker Grid.Column="1"
+                                        Title="Kies een tarief"
+                                        ItemsSource="{Binding Tariffs}"
+                                        ItemDisplayBinding="{Binding DisplayName}"
+                                        SelectedItem="{Binding SelectedTariff}" />
+
+                                <Label Grid.Column="2"
+                                       Text="{Binding PriceLabel}"
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+
+            <BoxView HeightRequest="1"
+                     Color="{StaticResource SurfaceContainerHigh}"
+                     Margin="0,8" />
+
+            <HorizontalStackLayout Spacing="8">
+                <Label Text="Totaal:"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center" />
+                <Label Text="{Binding TotalPriceLabel}"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Label Text="{Binding ErrorMessage}"
+                   TextColor="Red" />
+
+            <Button Text="Bevestig betaling"
+                    Margin="0,24,0,0" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

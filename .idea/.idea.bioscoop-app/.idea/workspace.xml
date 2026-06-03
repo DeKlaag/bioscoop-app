@@ -9,19 +9,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d76daa41-e172-4ec9-931a-41abbcf62149" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Models/SeatModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/ScreeningPage.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Views/ScreeningPage.xaml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/TariffModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/ITariffService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/TariffService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppShell.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Constants.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/HallModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/HallModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/IScreeningService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/IScreeningService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/ScreeningService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/ScreeningService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/MovieScreeningsViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/MovieScreeningsViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MovieScreenings.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MovieScreenings.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioscoop-app.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/bioscoop-app.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/ScreeningViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/ScreeningViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/ScreeningPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/ScreeningPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bioscoop-app.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/bioscoop-app.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,9 +59,13 @@
     <setting file="file://$PROJECT_DIR$/Models/HallModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/ScreeningModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/SeatModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/TariffModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Platforms/MacCatalyst/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/IScreeningService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Services/ITariffService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/ScreeningService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Services/TariffService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ViewModels/TariffsViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/MapPage.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/MovieScreenings.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/ProfilePage.xaml.cs" root0="FORCE_HIGHLIGHTING" />
@@ -143,7 +144,7 @@
       <workItem from="1778595985918" duration="45000" />
       <workItem from="1779803623063" duration="914000" />
       <workItem from="1779806277974" duration="17844000" />
-      <workItem from="1780418786406" duration="8270000" />
+      <workItem from="1780418786406" duration="10983000" />
     </task>
     <task id="LOCAL-00001" summary="added 0auth">
       <option name="closed" value="true" />
@@ -265,7 +266,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780418931226</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="choose seat">
+      <option name="closed" value="true" />
+      <created>1780511788947</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1780511788947</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +309,8 @@
     <MESSAGE value="screenings van een film" />
     <MESSAGE value="Begin van kaart" />
     <MESSAGE value="film favoriet maken" />
-    <option name="LAST_COMMIT_MESSAGE" value="film favoriet maken" />
+    <MESSAGE value="choose seat" />
+    <option name="LAST_COMMIT_MESSAGE" value="choose seat" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

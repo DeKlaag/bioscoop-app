@@ -132,7 +132,7 @@
             <Button
                 Margin="0, 40"
                 Text="Doorgaan naar betalen"
-                />
+                Command="{Binding ProceedToPaymentCommand}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

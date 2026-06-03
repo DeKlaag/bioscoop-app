@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using bioscoop_app.Models;
 using bioscoop_app.Services;
+using bioscoop_app.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
@@ -52,6 +53,25 @@ public partial class ScreeningViewModel : ObservableObject
             SelectedSeats.Remove(seat);
 
         OnPropertyChanged(nameof(SelectedSeatsLabel));
+    }
+
+    // Navigate to the payment screen, carrying the chosen seats and screening.
+    [RelayCommand]
+    private async Task ProceedToPaymentAsync()
+    {
+        if (SelectedSeats.Count == 0)
+        {
+            ErrorMessage = "Kies eerst een stoel.";
+            return;
+        }
+
+        ErrorMessage = null;
+        await Shell.Current.GoToAsync(nameof(PaymentPage),
+            new Dictionary<string, object>
+            {
+                ["seats"] = SelectedSeats.ToList(),
+                ["screening"] = Screening!,
+            });
     }
 
     private async Task LoadSeatsAsync(Guid screeningId)

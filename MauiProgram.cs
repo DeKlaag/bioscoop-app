@@ -42,6 +42,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<IMovieService, MovieService>();
         builder.Services.AddSingleton<IScreeningService, ScreeningService>();
         builder.Services.AddSingleton<IFavoritesService, FavoritesService>();
+        builder.Services.AddSingleton<ITariffService, TariffService>();
         builder.Services.AddSingleton<MoviesViewModel>();
         builder.Services.AddSingleton<MoviesPage>();
         builder.Services.AddSingleton<FavoritesViewModel>();
@@ -52,6 +53,8 @@ public static class MauiProgram
         builder.Services.AddTransient<MovieScreenings>();
         builder.Services.AddTransient<ScreeningViewModel>();
         builder.Services.AddTransient<ScreeningPage>();
+        builder.Services.AddTransient<PaymentViewModel>();
+        builder.Services.AddTransient<PaymentPage>();
 
         builder.Services.AddSingleton(new Auth0Client(new()
         {
