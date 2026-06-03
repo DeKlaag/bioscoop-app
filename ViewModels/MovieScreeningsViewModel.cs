@@ -1,7 +1,9 @@
 using System.Collections.ObjectModel;
 using bioscoop_app.Models;
 using bioscoop_app.Services;
+using bioscoop_app.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace bioscoop_app.ViewModels;
 
@@ -37,5 +39,13 @@ public partial class MovieScreeningsViewModel : ObservableObject
             Screenings.Add(screening);
 
         MovieTitle = items.FirstOrDefault()?.Movie?.Title;
+    }
+
+    [RelayCommand]
+    private async Task SelectScreeningAsync(ScreeningModel? screening)
+    {
+        if (screening is null) return;
+        await Shell.Current.GoToAsync(nameof(ScreeningPage),
+            new Dictionary<string, object> { ["screening"] = screening });
     }
 }

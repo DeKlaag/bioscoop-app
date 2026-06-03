@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:bioscoop_app.ViewModels"
+             xmlns:model="clr-namespace:bioscoop_app.Models"
+             x:Class="bioscoop_app.Views.ScreeningPage"
+             x:Name="ScreeningRoot"
+             x:DataType="vm:ScreeningViewModel"
+             Shell.TabBarIsVisible="False"
+             Title="Voorstelling">
+    <ScrollView>
+        <StackLayout Margin="20, 20" Spacing="8">
+            <Label
+                Text="{Binding Screening.Movie.Title}"
+                FontSize="20"
+                FontAttributes="Bold"/>
+            
+            <HorizontalStackLayout>
+                <Label Text="{Binding Screening.Hall.Number, StringFormat='Zaal - {0}'}"
+                       FontSize="16"
+                       FontAttributes="Bold"
+                       Margin="0, 0, 20, 20" />
+                <Label Text="{Binding Screening.StartTime, StringFormat='Start tijd:{0: HH:mm}'}"
+                       FontSize="16"
+                       FontAttributes="Bold"
+                       Margin="0, 0, 0, 20" />
+                
+                
+            </HorizontalStackLayout>
+            
+            <FlexLayout Direction="Column" AlignItems="Center" Margin="0,10,0,30">
+                <Border WidthRequest="280"
+                        HeightRequest="14"
+                        StrokeThickness="0"
+                        BackgroundColor="Gray"
+                        Margin="0,0,0,6">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="100,100,0,0" />
+                    </Border.StrokeShape>
+                </Border>
+                <Label Text="SCHERM"
+                       FontSize="12"
+                       FontAttributes="Bold"
+                       TextColor="Gray"
+                       CharacterSpacing="3"
+                       HorizontalOptions="Center" />
+            </FlexLayout>
+            
+            <Label Text="{Binding ErrorMessage}"
+                   TextColor="Red" />
+            
+            <VerticalStackLayout BindableLayout.ItemsSource="{Binding SeatRows}" Spacing="0">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:DataType="model:SeatRow">
+                            <HorizontalStackLayout BindableLayout.ItemsSource="{Binding}"
+                                                   Spacing="4"
+                                                   Padding="0,4"
+                                                   HorizontalOptions="Center">
+                                <BindableLayout.ItemTemplate>
+                                    <DataTemplate x:DataType="model:SeatModel">
+                                        <Button
+                                            Text="{Binding SeatNumber}"
+                                            FontSize="10"
+                                            WidthRequest="20"
+                                            HeightRequest="20"
+                                            Padding="0"
+                                            Margin="0"
+                                            CornerRadius="4"
+                                            MinimumWidthRequest="0"
+                                            MinimumHeightRequest="0"
+                                            IsEnabled="{Binding IsAvailable}"
+                                            Command="{Binding Source={x:Reference ScreeningRoot}, Path=BindingContext.ToggleSeatCommand}"
+                                            CommandParameter="{Binding}">
+                                            <Button.Triggers>
+                                                <DataTrigger TargetType="Button"
+                                                             Binding="{Binding IsSelected}"
+                                                             Value="True">
+                                                    <Setter Property="BackgroundColor" Value="#0a59dc" />
+                                                    <Setter Property="TextColor" Value="White" />
+                                                </DataTrigger>
+                                            </Button.Triggers>
+                                        </Button>
+                                    </DataTemplate>
+                                </BindableLayout.ItemTemplate>
+                            </HorizontalStackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+            
+            <Label Text="{Binding SelectedSeatsLabel, StringFormat='Gekozen stoelen: {0}'}"
+                   FontSize="14"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10" />
+
+            <!-- Legenda: uitleg van de stoelstatussen -->
+            <HorizontalStackLayout Spacing="16"
+                                   HorizontalOptions="Center"
+                                   Margin="0,0,0,10">
+                <HorizontalStackLayout Spacing="6">
+                    <Border WidthRequest="16" HeightRequest="16" StrokeThickness="0"
+                            BackgroundColor="{StaticResource Primary}">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="4" />
+                        </Border.StrokeShape>
+                    </Border>
+                    <Label Text="Beschikbaar" FontSize="12" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Spacing="6">
+                    <Border WidthRequest="16" HeightRequest="16" StrokeThickness="0"
+                            BackgroundColor="#0a59dc">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="4" />
+                        </Border.StrokeShape>
+                    </Border>
+                    <Label Text="Geselecteerd" FontSize="12" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Spacing="6">
+                    <Border WidthRequest="16" HeightRequest="16" StrokeThickness="0"
+                            BackgroundColor="{StaticResource SurfaceContainerHigh}">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="4" />
+                        </Border.StrokeShape>
+                    </Border>
+                    <Label Text="Bezet" FontSize="12" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </HorizontalStackLayout>
+            
+            <Button
+                Margin="0, 40"
+                Text="Doorgaan naar betalen"
+                />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

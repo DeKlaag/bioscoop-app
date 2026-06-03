@@ -9,12 +9,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d76daa41-e172-4ec9-931a-41abbcf62149" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Models/SeatModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/ScreeningPage.xaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/ScreeningPage.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppShell.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppShell.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Constants.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/Styles/Styles.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/Styles/Styles.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/MovieDetailViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/MovieDetailViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/MovieDetailPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MovieDetailPage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/HallModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/HallModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/IScreeningService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/IScreeningService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/ScreeningService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/ScreeningService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/MovieScreeningsViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/MovieScreeningsViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MovieScreenings.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MovieScreenings.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bioscoop-app.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/bioscoop-app.sln.DotSettings.user" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,14 +57,19 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/79bf4a085f1d655a12edbedb7bcb3651ff1269/Views_MovieScreenings.xaml.sg.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a4a74455bc2c18eb52a6b63db8013218e38cc8e695af787044e66b471af19a/ArgumentNullException.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/b135a2f06e76e0252c94c361dc86a3abec85eb35273d68665bf6fa2d2ce05e/MarkupExpressionParser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bed16ded5ccaea1a296e7956d3fb42cc76934f59/Views_ScreeningPage.xaml.sg.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/dddd0918873795d3d69f4970548832030206d2b721b835d6e41a19023f2f/Dispatcher.iOS.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/HallModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Models/ScreeningModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Models/SeatModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Platforms/MacCatalyst/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/IScreeningService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/ScreeningService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/MapPage.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/MovieScreenings.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/ProfilePage.xaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Views/ScreeningPage.xaml.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file:///var/folders/n9/crw170gj6dvg075_4gcyct2h0000gn/T/SourceGeneratedDocuments/D485F0D8BEA8909B77BE6B87/CommunityToolkit.Mvvm.SourceGenerators/CommunityToolkit.Mvvm.SourceGenerators.RelayCommandGenerator/bioscoop_app.ViewModels.MoviesViewModel.SelectMovieAsync.g.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -76,31 +88,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Device#class com.jetbrains.rider.run.multiPlatform.ios.devices.IOSConnectedDeviceKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider#iOS: bioscoop-app&quot;: &quot;IPhone van Daan (2)&quot;,
-    &quot;DeviceKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider&quot;: &quot;Device&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;iOS.bioscoop-app.executor&quot;: &quot;Run&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;macOS.bioscoop-app.executor&quot;: &quot;Debug&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;RoslynSettingsId&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Device#class com.jetbrains.rider.run.multiPlatform.ios.devices.IOSConnectedDeviceKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider#iOS: bioscoop-app": "IPhone van Daan (2)",
+    "DeviceKind#com.jetbrains.rider.run.multiPlatform.ios.devices.IOSDevicesProvider": "Device",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "iOS.bioscoop-app.executor": "Run",
+    "junie.onboarding.icon.badge.shown": "true",
+    "macOS.bioscoop-app.executor": "Debug",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "RoslynSettingsId",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="iOS.bioscoop-app">
     <configuration name="bioscoop-app" type="XamarinIOSProject" factoryName="Xamarin.iOS">
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/bioscoop-app.csproj" />
@@ -131,6 +143,7 @@
       <workItem from="1778595985918" duration="45000" />
       <workItem from="1779803623063" duration="914000" />
       <workItem from="1779806277974" duration="17844000" />
+      <workItem from="1780418786406" duration="8270000" />
     </task>
     <task id="LOCAL-00001" summary="added 0auth">
       <option name="closed" value="true" />
@@ -244,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1780142483734</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="film favoriet maken">
+      <option name="closed" value="true" />
+      <created>1780418931226</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1780418931226</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,7 +299,8 @@
     <MESSAGE value="Movie info page" />
     <MESSAGE value="screenings van een film" />
     <MESSAGE value="Begin van kaart" />
-    <option name="LAST_COMMIT_MESSAGE" value="Begin van kaart" />
+    <MESSAGE value="film favoriet maken" />
+    <option name="LAST_COMMIT_MESSAGE" value="film favoriet maken" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -50,6 +50,8 @@ public static class MauiProgram
         builder.Services.AddTransient<MovieDetailPage>();
         builder.Services.AddTransient<MovieScreeningsViewModel>();
         builder.Services.AddTransient<MovieScreenings>();
+        builder.Services.AddTransient<ScreeningViewModel>();
+        builder.Services.AddTransient<ScreeningPage>();
 
         builder.Services.AddSingleton(new Auth0Client(new()
         {

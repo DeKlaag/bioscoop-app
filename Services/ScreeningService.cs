@@ -41,4 +41,27 @@ public class ScreeningService : IScreeningService
             throw;
         }
     }
+
+    public async Task<List<SeatModel>> GetSeatsByScreeningAsync(Guid screeningId)
+    {
+        var url = Constants.ScreeningSeatsUrl(screeningId);
+        try
+        {
+            using var response = await _http.GetAsync(url);
+            if (!response.IsSuccessStatusCode)
+            {
+                Debug.WriteLine($"GET {url} -> {(int)response.StatusCode}");
+                return [];
+            }
+
+            await using var stream = await response.Content.ReadAsStreamAsync();
+            var seats = await JsonSerializer.DeserializeAsync<List<SeatModel>>(stream, _jsonOptions);
+            return seats ?? [];
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"ScreeningService.GetSeatsByScreeningAsync failed: {ex}");
+            throw;
+        }
+    }
 }

@@ -16,7 +16,7 @@
                    HorizontalOptions="Start"
                    HorizontalTextAlignment="Start" 
                    Margin="0, 20"/>
-            <CollectionView ItemsSource="{Binding Screenings}">
+            <CollectionView x:Name="ScreeningsCollection" ItemsSource="{Binding Screenings}">
                 <CollectionView.EmptyView>
                     <Label Text="Geen voorstellingen gevonden."
                            Padding="20"
@@ -29,6 +29,11 @@
                                 Margin="0,8"
                                 StrokeThickness="0"
                                 BackgroundColor="{StaticResource Primary}">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding BindingContext.SelectScreeningCommand, Source={x:Reference ScreeningsCollection}}"
+                                    CommandParameter="{Binding .}" />
+                            </Border.GestureRecognizers>
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="12" />
                             </Border.StrokeShape>
@@ -37,7 +42,7 @@
                                        FontSize="18"
                                        FontAttributes="Bold"
                                        TextColor="Black" />
-                                <Label Text="{Binding Hall.LayoutType, StringFormat='Zaal - {0}'}"
+                                <Label Text="{Binding Hall.Number, StringFormat='Zaal - {0}'}"
                                        FontSize="16"
                                        FontAttributes="Bold"
                                        TextColor="Black" />

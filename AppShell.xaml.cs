@@ -13,6 +13,7 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
         Routing.RegisterRoute(nameof(MovieDetailPage), typeof(MovieDetailPage));
         Routing.RegisterRoute(nameof(MovieScreenings), typeof(MovieScreenings));
+        Routing.RegisterRoute(nameof(ScreeningPage), typeof(ScreeningPage));
         Navigated += OnShellNavigated;
     }
 
