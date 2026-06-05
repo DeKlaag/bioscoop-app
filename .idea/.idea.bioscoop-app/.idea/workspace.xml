@@ -9,16 +9,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d76daa41-e172-4ec9-931a-41abbcf62149" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Models/TariffModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/ITariffService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/TariffService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AppShell.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Constants.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/ScreeningViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/ScreeningViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/ScreeningPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/ScreeningPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioscoop-app.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/bioscoop-app.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ViewModels/PaymentViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/PaymentViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/PaymentPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/PaymentPage.xaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +61,6 @@
     <setting file="file://$PROJECT_DIR$/Services/ITariffService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/ScreeningService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Services/TariffService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/ViewModels/TariffsViewModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/MapPage.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/MovieScreenings.xaml.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Views/ProfilePage.xaml.cs" root0="FORCE_HIGHLIGHTING" />
@@ -103,7 +98,7 @@
     "git-widget-placeholder": "main",
     "iOS.bioscoop-app.executor": "Run",
     "junie.onboarding.icon.badge.shown": "true",
-    "macOS.bioscoop-app.executor": "Debug",
+    "macOS.bioscoop-app.executor": "Run",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -114,7 +109,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="iOS.bioscoop-app">
+  <component name="RunManager" selected="macOS.bioscoop-app">
     <configuration name="bioscoop-app" type="XamarinIOSProject" factoryName="Xamarin.iOS">
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/bioscoop-app.csproj" />
       <option name="PROGRAM_PARAMETERS" value="" />

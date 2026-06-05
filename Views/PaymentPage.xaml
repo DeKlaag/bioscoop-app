@@ -91,7 +91,13 @@
                    TextColor="Red" />
 
             <Button Text="Bevestig betaling"
+                    Command="{Binding ConfirmPaymentCommand}"
+                    IsEnabled="{Binding IsNotProcessing}"
                     Margin="0,24,0,0" />
+
+            <ActivityIndicator IsRunning="{Binding IsProcessing}"
+                               IsVisible="{Binding IsProcessing}"
+                               HorizontalOptions="Center" />
 
         </VerticalStackLayout>
     </ScrollView>

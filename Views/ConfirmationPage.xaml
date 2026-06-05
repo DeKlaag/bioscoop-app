@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="bioscoop_app.Views.ConfirmationPage"
+             Shell.TabBarIsVisible="False"
+             Shell.NavBarIsVisible="False"
+             Title="Bevestiging">
+    <Grid RowDefinitions="*,Auto" Padding="24" RowSpacing="24">
+
+        <!-- Success state: icon + heading, vertically centred -->
+        <VerticalStackLayout Grid.Row="0"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center"
+                             Spacing="24">
+
+            <Border WidthRequest="96"
+                    HeightRequest="96"
+                    BackgroundColor="{StaticResource Primary}"
+                    StrokeThickness="0"
+                    HorizontalOptions="Center">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="48" />
+                </Border.StrokeShape>
+                <Label Text="&#x2713;"
+                       FontSize="52"
+                       TextColor="{StaticResource OnPrimary}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+            </Border>
+
+            <VerticalStackLayout Spacing="6" HorizontalOptions="Center">
+                <Label Text="Betaling geslaagd"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="Je tickets zijn gereserveerd."
+                       FontSize="15"
+                       TextColor="{StaticResource OnSurfaceVariant}"
+                       HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+
+        <!-- Reservation card pinned to the bottom -->
+        <Border Grid.Row="1"
+                Padding="20"
+                StrokeThickness="1"
+                Stroke="{StaticResource SurfaceContainerHighest}"
+                BackgroundColor="{StaticResource SurfaceContainerLow}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="12" />
+            </Border.StrokeShape>
+            <VerticalStackLayout Spacing="8">
+                <Label Text="Reserveringsnr."
+                       FontSize="13"
+                       TextColor="{StaticResource OnSurfaceVariant}" />
+                <Label Text="{Binding Code}"
+                       FontSize="20"
+                       FontAttributes="Bold" />
+                <Label Text="{Binding Details}"
+                       FontSize="14"
+                       TextColor="{StaticResource OnSurfaceVariant}" />
+
+                <Button Text="Klaar"
+                        Clicked="OnDoneClicked"
+                        Margin="0,12,0,0" />
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
+</ContentPage>
