@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:bioscoop_app.ViewModels"
+             xmlns:models="clr-namespace:bioscoop_app.Models"
+             x:Class="bioscoop_app.Views.ReservationsPage"
+             x:DataType="vm:ReservationsViewModel"
+             Title="Mijn reserveringen">
+    <Grid RowDefinitions="Auto,*">
+
+        <!-- Aankomend / Historie toggle -->
+        <Border Grid.Row="0"
+                Margin="16,16,16,8"
+                Padding="3"
+                BackgroundColor="{StaticResource SurfaceContainer}"
+                StrokeThickness="0"
+                StrokeShape="RoundRectangle 12">
+            <Grid ColumnDefinitions="*,*">
+                <Button Grid.Column="0"
+                        Text="Aankomend"
+                        FontSize="14"
+                        CornerRadius="9"
+                        Command="{Binding ShowUpcomingCommand}"
+                        BackgroundColor="Transparent"
+                        TextColor="{StaticResource OnSurfaceVariant}">
+                    <Button.Triggers>
+                        <DataTrigger TargetType="Button"
+                                     Binding="{Binding IsUpcomingSelected}"
+                                     Value="True">
+                            <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                            <Setter Property="TextColor" Value="{StaticResource OnPrimary}" />
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+                <Button Grid.Column="1"
+                        Text="Historie"
+                        FontSize="14"
+                        CornerRadius="9"
+                        Command="{Binding ShowPastCommand}"
+                        BackgroundColor="Transparent"
+                        TextColor="{StaticResource OnSurfaceVariant}">
+                    <Button.Triggers>
+                        <DataTrigger TargetType="Button"
+                                     Binding="{Binding IsHistorySelected}"
+                                     Value="True">
+                            <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                            <Setter Property="TextColor" Value="{StaticResource OnPrimary}" />
+                        </DataTrigger>
+                    </Button.Triggers>
+                </Button>
+            </Grid>
+        </Border>
+
+        <RefreshView Grid.Row="1"
+                     IsRefreshing="{Binding IsBusy}"
+                     Command="{Binding LoadCommand}">
+            <CollectionView x:Name="collectionView"
+                            Margin="16,8,16,16"
+                            ItemsSource="{Binding Reservations}">
+                <CollectionView.EmptyView>
+                    <VerticalStackLayout Padding="20" Spacing="8" VerticalOptions="Center">
+                        <Label Text="Hier zijn geen reserveringen."
+                               IsVisible="{Binding IsLoggedIn}"
+                               HorizontalTextAlignment="Center"
+                               TextColor="{StaticResource OnSurfaceVariant}" />
+                        <Label Text="Log in om je reserveringen te bekijken."
+                               IsVisible="{Binding IsLoggedOut}"
+                               HorizontalTextAlignment="Center"
+                               TextColor="{StaticResource OnSurfaceVariant}" />
+                    </VerticalStackLayout>
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:ReservationModel">
+                        <Border Margin="0,0,0,12"
+                                Padding="10"
+                                BackgroundColor="{StaticResource SurfaceContainer}"
+                                Stroke="{StaticResource SurfaceContainerHigh}"
+                                StrokeThickness="1"
+                                StrokeShape="RoundRectangle 14">
+                            <Grid ColumnDefinitions="64,*" ColumnSpacing="14" VerticalOptions="Center">
+                                <Border Grid.Column="0"
+                                        BackgroundColor="{StaticResource SurfaceContainerHigh}"
+                                        StrokeThickness="0"
+                                        StrokeShape="RoundRectangle 10"
+                                        HeightRequest="100"
+                                        WidthRequest="64">
+                                    <Image Source="{Binding Movie.ImageUrl}"
+                                           Aspect="AspectFill" />
+                                </Border>
+                                <VerticalStackLayout Grid.Column="1" Spacing="4" VerticalOptions="Center">
+                                    <Label Text="{Binding MovieTitle}"
+                                           FontAttributes="Bold"
+                                           FontSize="16"
+                                           TextColor="{StaticResource OnSurface}"
+                                           LineBreakMode="TailTruncation" />
+                                    <Label Text="{Binding WhenDisplay}"
+                                           FontSize="13"
+                                           TextColor="{StaticResource OnSurfaceVariant}" />
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </Grid>
+</ContentPage>

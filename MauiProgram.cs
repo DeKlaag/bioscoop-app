@@ -44,6 +44,10 @@ public static class MauiProgram
         builder.Services.AddSingleton<IFavoritesService, FavoritesService>();
         builder.Services.AddSingleton<ITariffService, TariffService>();
         builder.Services.AddSingleton<IPaymentService, PaymentService>();
+        builder.Services.AddSingleton<IReservationService, ReservationService>();
+        builder.Services.AddSingleton<IReservationStore, ReservationStore>();
+        builder.Services.AddTransient<ReservationsViewModel>();
+        builder.Services.AddTransient<ReservationsPage>();
         builder.Services.AddSingleton<MoviesViewModel>();
         builder.Services.AddSingleton<MoviesPage>();
         builder.Services.AddSingleton<FavoritesViewModel>();

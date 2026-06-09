@@ -96,6 +96,9 @@
       <Compile Update="Views\MovieDetailPage.xaml.cs">
         <DependentUpon>MovieDetailPage.xaml</DependentUpon>
       </Compile>
+      <Compile Update="Views\ConfirmationPage.xaml.cs">
+        <DependentUpon>ConfirmationPage.xaml</DependentUpon>
+      </Compile>
     </ItemGroup>
     
 </Project>

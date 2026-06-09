@@ -9,6 +9,7 @@ public static class Constants
     public static string MoviesUrl = $"{Scheme}://{LocalhostUrl}:{Port}/api/movies/";
     public static string ScreeningsURL = $"{Scheme}://{LocalhostUrl}:{Port}/api/screenings/";
     public static string TariffsURL = $"{Scheme}://{LocalhostUrl}:{Port}/api/tariffs/";
+    public static string UserReservationsURL = $"{Scheme}://{LocalhostUrl}:{Port}/api/Reservations/by-email/";
 
     // The API base URL, also reused as the FrontendBaseUrl sent to Stripe so the
     // checkout success/cancel redirects point back at a host the in-app WebView can intercept.
@@ -22,4 +23,7 @@ public static class Constants
 
     public static string ReservationByCodeUrl(string code) =>
         $"{Scheme}://{LocalhostUrl}:{Port}/api/reservations/by-code/{code}";
+
+    public static string UserReservationsUrl(string email) =>
+        $"{UserReservationsURL}{Uri.EscapeDataString(email)}";
 }

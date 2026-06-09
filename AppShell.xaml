@@ -45,6 +45,10 @@
             ContentTemplate="{DataTemplate views:FavoritesPage}"
             Route="FavoritesPage" />
         <ShellContent
+            Title="Reserveringen"
+            ContentTemplate="{DataTemplate views:ReservationsPage}"
+            Route="ReservationsPage" />
+        <ShellContent
             Title="Kaart"
             ContentTemplate="{DataTemplate views:MapPage}"
             Route="MapPage" />
