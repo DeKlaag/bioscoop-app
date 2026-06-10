@@ -28,6 +28,25 @@ public partial class ProfilePage
         }
     }
 
+    private async void OnCheckInScannerClicked(object sender, EventArgs e)
+    {
+        // Ask for camera access BEFORE opening the scanner page, so the camera view
+        // is only ever created once permission is granted (creating it without
+        // permission / usage description crashes on iOS).
+        var status = await Permissions.CheckStatusAsync<Permissions.Camera>();
+        if (status != PermissionStatus.Granted)
+            status = await Permissions.RequestAsync<Permissions.Camera>();
+
+        if (status != PermissionStatus.Granted)
+        {
+            await DisplayAlertAsync("Camera",
+                "Geef toegang tot de camera om QR-codes te kunnen scannen.", "OK");
+            return;
+        }
+
+        await Shell.Current.GoToAsync(nameof(CheckInScannerPage));
+    }
+
     private async void OnLogoutClicked(object sender, EventArgs e)
     {
         await _auth0Client.LogoutAsync();

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:bioscoop_app.ViewModels"
+             xmlns:model="clr-namespace:bioscoop_app.Models"
+             x:Class="bioscoop_app.Views.EditSeatsPage"
+             x:Name="EditSeatsRoot"
+             x:DataType="vm:EditSeatsViewModel"
+             Shell.TabBarIsVisible="False"
+             Title="Wijzig stoelen">
+    <ScrollView>
+        <StackLayout Margin="20,20" Spacing="8">
+            <Label Text="{Binding Reservation.MovieTitle}"
+                   FontSize="20"
+                   FontAttributes="Bold" />
+            <Label Text="{Binding Reservation.WhenDisplay}"
+                   FontSize="14"
+                   TextColor="{StaticResource OnSurfaceVariant}"
+                   Margin="0,0,0,10" />
+
+            <FlexLayout Direction="Column" AlignItems="Center" Margin="0,10,0,30">
+                <Border WidthRequest="280"
+                        HeightRequest="14"
+                        StrokeThickness="0"
+                        BackgroundColor="Gray"
+                        Margin="0,0,0,6">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="100,100,0,0" />
+                    </Border.StrokeShape>
+                </Border>
+                <Label Text="SCHERM"
+                       FontSize="12"
+                       FontAttributes="Bold"
+                       TextColor="Gray"
+                       CharacterSpacing="3"
+                       HorizontalOptions="Center" />
+            </FlexLayout>
+
+            <Label Text="{Binding ErrorMessage}"
+                   TextColor="{StaticResource Error}" />
+
+            <VerticalStackLayout BindableLayout.ItemsSource="{Binding SeatRows}" Spacing="0">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="model:SeatRow">
+                        <HorizontalStackLayout BindableLayout.ItemsSource="{Binding}"
+                                               Spacing="4"
+                                               Padding="0,4"
+                                               HorizontalOptions="Center">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate x:DataType="model:SeatModel">
+                                    <Button
+                                        Text="{Binding SeatNumber}"
+                                        FontSize="10"
+                                        WidthRequest="20"
+                                        HeightRequest="20"
+                                        Padding="0"
+                                        Margin="0"
+                                        CornerRadius="4"
+                                        MinimumWidthRequest="0"
+                                        MinimumHeightRequest="0"
+                                        IsEnabled="{Binding IsAvailable}"
+                                        Command="{Binding Source={x:Reference EditSeatsRoot}, Path=BindingContext.ToggleSeatCommand}"
+                                        CommandParameter="{Binding}">
+                                        <Button.Triggers>
+                                            <DataTrigger TargetType="Button"
+                                                         Binding="{Binding IsSelected}"
+                                                         Value="True">
+                                                <Setter Property="BackgroundColor" Value="#0a59dc" />
+                                                <Setter Property="TextColor" Value="White" />
+                                            </DataTrigger>
+                                        </Button.Triggers>
+                                    </Button>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </HorizontalStackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
+
+            <Label Text="{Binding SelectionLabel}"
+                   FontSize="14"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   Margin="0,10,0,10" />
+
+            <Button
+                Margin="0,20"
+                Text="Bevestig wijziging"
+                IsEnabled="{Binding CanConfirm}"
+                Command="{Binding ConfirmCommand}" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

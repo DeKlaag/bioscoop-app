@@ -1,4 +1,6 @@
 using System.Diagnostics;
+using System.Net;
+using System.Net.Http.Json;
 using System.Text.Json;
 using bioscoop_app.Models;
 
@@ -43,5 +45,75 @@ public class ReservationService : IReservationService
             Debug.WriteLine($"ReservationService.GetReservationsByEmailAsync failed: {ex}");
             throw;
         }
+    }
+
+    public async Task<ReservationModel?> GetByCodeAsync(string code)
+    {
+        if (string.IsNullOrWhiteSpace(code))
+            return null;
+
+        var url = Constants.ReservationByCodeUrl(code);
+        using var response = await _http.GetAsync(url);
+        if (!response.IsSuccessStatusCode)
+        {
+            Debug.WriteLine($"GET {url} -> {(int)response.StatusCode}");
+            return null;
+        }
+
+        await using var stream = await response.Content.ReadAsStreamAsync();
+        return await JsonSerializer.DeserializeAsync<ReservationModel>(stream, _jsonOptions);
+    }
+
+    public async Task<ReservationModel?> CancelAsync(string code)
+    {
+        var url = Constants.ReservationCancelUrl(code);
+        using var response = await _http.PatchAsync(url, content: null);
+        if (!response.IsSuccessStatusCode)
+        {
+            Debug.WriteLine($"PATCH {url} -> {(int)response.StatusCode}");
+            return null;
+        }
+
+        await using var stream = await response.Content.ReadAsStreamAsync();
+        return await JsonSerializer.DeserializeAsync<ReservationModel>(stream, _jsonOptions);
+    }
+
+    public async Task<ReservationModel?> UpdateSeatsAsync(string code, IReadOnlyList<Guid> seatIds)
+    {
+        var url = Constants.ReservationSeatsUrl(code);
+        using var response = await _http.PutAsJsonAsync(url, new { seatIds }, _jsonOptions);
+
+        if (response.StatusCode == HttpStatusCode.Conflict)
+        {
+            var msg = await response.Content.ReadAsStringAsync();
+            throw new ReservationConflictException(
+                string.IsNullOrWhiteSpace(msg) ? "Eén of meer stoelen zijn al bezet." : msg);
+        }
+
+        if (!response.IsSuccessStatusCode)
+        {
+            Debug.WriteLine($"PUT {url} -> {(int)response.StatusCode}");
+            return null;
+        }
+
+        await using var stream = await response.Content.ReadAsStreamAsync();
+        return await JsonSerializer.DeserializeAsync<ReservationModel>(stream, _jsonOptions);
+    }
+
+    public async Task<CheckInResultModel?> CheckInAsync(string code)
+    {
+        if (string.IsNullOrWhiteSpace(code))
+            return null;
+
+        var url = Constants.ReservationCheckInUrl(code);
+        using var response = await _http.PostAsync(url, content: null);
+        if (!response.IsSuccessStatusCode)
+        {
+            Debug.WriteLine($"POST {url} -> {(int)response.StatusCode}");
+            return null;
+        }
+
+        await using var stream = await response.Content.ReadAsStreamAsync();
+        return await JsonSerializer.DeserializeAsync<CheckInResultModel>(stream, _jsonOptions);
     }
 }

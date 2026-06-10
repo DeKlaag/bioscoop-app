@@ -2,6 +2,7 @@ using System.Collections.ObjectModel;
 using System.Security.Claims;
 using bioscoop_app.Models;
 using bioscoop_app.Services;
+using bioscoop_app.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
@@ -55,11 +56,20 @@ public partial class ReservationsViewModel : ObservableObject
     private void ApplyFilter()
     {
         Reservations.Clear();
+        // Cancelled reservations always belong in history, regardless of their time.
         var filtered = ShowHistory
-            ? _all.Where(r => !r.IsUpcoming).OrderByDescending(r => r.StartTimeUtc)
-            : _all.Where(r => r.IsUpcoming).OrderBy(r => r.StartTimeUtc);
+            ? _all.Where(r => !r.IsUpcoming || r.IsCancelled).OrderByDescending(r => r.StartTimeUtc)
+            : _all.Where(r => r.IsUpcoming && !r.IsCancelled).OrderBy(r => r.StartTimeUtc);
         foreach (var reservation in filtered)
             Reservations.Add(reservation);
+    }
+
+    [RelayCommand]
+    private async Task SelectReservationAsync(ReservationModel? reservation)
+    {
+        if (reservation is null) return;
+        await Shell.Current.GoToAsync(nameof(ReservationDetailPage),
+            new Dictionary<string, object> { ["reservation"] = reservation });
     }
 
     public ReservationsViewModel(IReservationService reservationService, IReservationStore store, IUserSession session)

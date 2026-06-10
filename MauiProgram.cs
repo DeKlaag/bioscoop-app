@@ -4,6 +4,7 @@ using Auth0.OidcClient;
 using bioscoop_app.Services;
 using bioscoop_app.ViewModels;
 using bioscoop_app.Views;
+using BarcodeScanning;
 
 namespace bioscoop_app;
 
@@ -19,7 +20,8 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             })
-            .UseMauiMaps(); 
+            .UseMauiMaps()
+            .UseBarcodeScanning();
 
 #if IOS || MACCATALYST
         SearchBarHandler.Mapper.AppendToMapping("NoNativeBackground", (handler, _) =>
@@ -62,6 +64,12 @@ public static class MauiProgram
         builder.Services.AddTransient<PaymentPage>();
         builder.Services.AddTransient<CheckoutPage>();
         builder.Services.AddTransient<ConfirmationPage>();
+        builder.Services.AddTransient<ReservationDetailViewModel>();
+        builder.Services.AddTransient<ReservationDetailPage>();
+        builder.Services.AddTransient<EditSeatsViewModel>();
+        builder.Services.AddTransient<EditSeatsPage>();
+        builder.Services.AddTransient<CheckInScannerViewModel>();
+        builder.Services.AddTransient<CheckInScannerPage>();
 
         builder.Services.AddSingleton(new Auth0Client(new()
         {

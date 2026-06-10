@@ -24,6 +24,15 @@ public static class Constants
     public static string ReservationByCodeUrl(string code) =>
         $"{Scheme}://{LocalhostUrl}:{Port}/api/reservations/by-code/{code}";
 
+    public static string ReservationCancelUrl(string code) =>
+        $"{Scheme}://{LocalhostUrl}:{Port}/api/reservations/{code}/cancel";
+
+    public static string ReservationSeatsUrl(string code) =>
+        $"{Scheme}://{LocalhostUrl}:{Port}/api/reservations/{code}/seats";
+
+    public static string ReservationCheckInUrl(string code) =>
+        $"{Scheme}://{LocalhostUrl}:{Port}/api/reservations/{code}/checkin";
+
     public static string UserReservationsUrl(string email) =>
         $"{UserReservationsURL}{Uri.EscapeDataString(email)}";
 }

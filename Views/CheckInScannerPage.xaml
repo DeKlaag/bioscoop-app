@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:bioscoop_app.ViewModels"
+             xmlns:scanner="clr-namespace:BarcodeScanning;assembly=BarcodeScanning.Native.Maui"
+             x:Class="bioscoop_app.Views.CheckInScannerPage"
+             x:DataType="vm:CheckInScannerViewModel"
+             Shell.TabBarIsVisible="False"
+             Title="Check-in scanner">
+    <Grid>
+        <scanner:CameraView
+            x:Name="Scanner"
+            CameraEnabled="{Binding CameraAuthorized}"
+            PauseScanning="{Binding IsPaused}"
+            BarcodeSymbologies="QRCode"
+            OnDetectionFinished="OnDetectionFinished" />
+
+        <!-- Scan hint while idle -->
+        <Label Text="Richt op de QR-code van de reservering"
+               IsVisible="{Binding IsScanning}"
+               VerticalOptions="Start"
+               HorizontalOptions="Center"
+               Margin="0,24,0,0"
+               Padding="14,8"
+               BackgroundColor="#99000000"
+               TextColor="White"
+               FontSize="14" />
+
+        <!-- Result card -->
+        <Border IsVisible="{Binding HasResult}"
+                VerticalOptions="End"
+                Margin="16"
+                Padding="20"
+                StrokeThickness="0"
+                BackgroundColor="{Binding ResultColor}"
+                StrokeShape="RoundRectangle 16">
+            <VerticalStackLayout Spacing="10">
+                <Label Text="{Binding ResultTitle}"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       TextColor="White" />
+                <Label Text="{Binding ResultDetail}"
+                       FontSize="15"
+                       TextColor="White" />
+                <Button Text="Volgende scannen"
+                        Command="{Binding ScanNextCommand}"
+                        Margin="0,8,0,0"
+                        BackgroundColor="White"
+                        TextColor="Black" />
+            </VerticalStackLayout>
+        </Border>
+
+        <!-- Busy indicator -->
+        <ActivityIndicator IsRunning="{Binding IsProcessing}"
+                           IsVisible="{Binding IsProcessing}"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                           Color="White" />
+    </Grid>
+</ContentPage>

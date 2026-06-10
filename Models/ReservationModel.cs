@@ -14,6 +14,9 @@ public class ReservationModel
     [JsonPropertyName("movie")]
     public MovieModel? Movie { get; set; }
 
+    [JsonPropertyName("screeningId")]
+    public Guid ScreeningId { get; set; }
+
     [JsonPropertyName("hallNumber")]
     public int HallNumber { get; set; }
 
@@ -31,6 +34,9 @@ public class ReservationModel
 
     [JsonPropertyName("arrangementAmount")]
     public decimal ArrangementAmount { get; set; }
+
+    [JsonPropertyName("checkedInAtUtc")]
+    public DateTime? CheckedInAtUtc { get; set; }
 
     [JsonPropertyName("seats")]
     public List<ReservationSeatModel> Seats { get; set; } = new();
@@ -65,12 +71,21 @@ public class ReservationModel
 
     [JsonIgnore]
     public bool IsUpcoming => StartTimeUtc >= DateTime.UtcNow;
+
+    [JsonIgnore]
+    public bool IsCancelled => string.Equals(Status, "cancelled", StringComparison.OrdinalIgnoreCase);
+
+    [JsonIgnore]
+    public bool IsCheckedIn => CheckedInAtUtc is not null;
 }
 
 public class ReservationSeatModel
 {
     [JsonPropertyName("orderId")]
     public Guid OrderId { get; set; }
+
+    [JsonPropertyName("seatId")]
+    public Guid? SeatId { get; set; }
 
     [JsonPropertyName("rowLabel")]
     public string? RowLabel { get; set; }

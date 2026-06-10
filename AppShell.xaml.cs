@@ -17,6 +17,9 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(PaymentPage), typeof(PaymentPage));
         Routing.RegisterRoute(nameof(CheckoutPage), typeof(CheckoutPage));
         Routing.RegisterRoute(nameof(ConfirmationPage), typeof(ConfirmationPage));
+        Routing.RegisterRoute(nameof(ReservationDetailPage), typeof(ReservationDetailPage));
+        Routing.RegisterRoute(nameof(EditSeatsPage), typeof(EditSeatsPage));
+        Routing.RegisterRoute(nameof(CheckInScannerPage), typeof(CheckInScannerPage));
         Navigated += OnShellNavigated;
     }
 

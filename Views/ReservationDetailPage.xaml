@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:bioscoop_app.ViewModels"
+             x:Class="bioscoop_app.Views.ReservationDetailPage"
+             x:DataType="vm:ReservationDetailViewModel"
+             Shell.TabBarIsVisible="False"
+             Title="Reservering">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+
+            <!-- Poster + title -->
+            <Grid ColumnDefinitions="96,*" ColumnSpacing="16">
+                <Border Grid.Column="0"
+                        BackgroundColor="{StaticResource SurfaceContainerHigh}"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 12"
+                        HeightRequest="144"
+                        WidthRequest="96">
+                    <Image Source="{Binding Reservation.Movie.ImageUrl}"
+                           Aspect="AspectFill" />
+                </Border>
+                <VerticalStackLayout Grid.Column="1" Spacing="8" VerticalOptions="Center">
+                    <Label Text="{Binding Reservation.MovieTitle}"
+                           FontSize="20"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource OnSurface}" />
+                    <Label Text="{Binding Reservation.WhenDisplay}"
+                           FontSize="14"
+                           TextColor="{StaticResource OnSurfaceVariant}" />
+
+                    <!-- Status badge -->
+                    <Border Padding="10,4"
+                            HorizontalOptions="Start"
+                            BackgroundColor="{StaticResource Primary}"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 8">
+                        <Border.Triggers>
+                            <DataTrigger TargetType="Border"
+                                         Binding="{Binding IsCancelled}"
+                                         Value="True">
+                                <Setter Property="BackgroundColor" Value="{StaticResource Error}" />
+                            </DataTrigger>
+                        </Border.Triggers>
+                        <Label Text="{Binding StatusLabel}"
+                               FontSize="12"
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource OnPrimary}" />
+                    </Border>
+                </VerticalStackLayout>
+            </Grid>
+
+            <!-- QR code: shown at the entrance and shared as an image -->
+            <Border Padding="20"
+                    StrokeThickness="1"
+                    Stroke="{StaticResource SurfaceContainerHigh}"
+                    BackgroundColor="{StaticResource SurfaceContainer}"
+                    StrokeShape="RoundRectangle 14">
+                <VerticalStackLayout Spacing="14" HorizontalOptions="Center">
+                    <Border BackgroundColor="White"
+                            Padding="12"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 12"
+                            HorizontalOptions="Center">
+                        <Image Source="{Binding QrImage}"
+                               Aspect="AspectFit"
+                               WidthRequest="220"
+                               HeightRequest="220" />
+                    </Border>
+                    <Label Text="Toon deze QR-code bij de ingang"
+                           FontSize="14"
+                           TextColor="{StaticResource OnSurfaceVariant}"
+                           HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Actions -->
+            <Button Text="Wijzig stoelen"
+                    Command="{Binding EditSeatsCommand}"
+                    IsVisible="{Binding CanModify}" />
+            <Button Text="Deel"
+                    Command="{Binding ShareCommand}"
+                    BackgroundColor="{StaticResource SurfaceContainerHigh}"
+                    TextColor="{StaticResource OnSurface}" />
+            <Button Text="Annuleer reservering"
+                    Command="{Binding CancelCommand}"
+                    IsVisible="{Binding CanModify}"
+                    BackgroundColor="Transparent"
+                    TextColor="{StaticResource Error}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

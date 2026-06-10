@@ -77,6 +77,11 @@
                                 Stroke="{StaticResource SurfaceContainerHigh}"
                                 StrokeThickness="1"
                                 StrokeShape="RoundRectangle 14">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Source={x:Reference collectionView}, Path=BindingContext.SelectReservationCommand}"
+                                    CommandParameter="{Binding .}" />
+                            </Border.GestureRecognizers>
                             <Grid ColumnDefinitions="64,*" ColumnSpacing="14" VerticalOptions="Center">
                                 <Border Grid.Column="0"
                                         BackgroundColor="{StaticResource SurfaceContainerHigh}"
@@ -96,6 +101,11 @@
                                     <Label Text="{Binding WhenDisplay}"
                                            FontSize="13"
                                            TextColor="{StaticResource OnSurfaceVariant}" />
+                                    <Label Text="Geannuleerd"
+                                           FontSize="12"
+                                           FontAttributes="Bold"
+                                           TextColor="{StaticResource Error}"
+                                           IsVisible="{Binding IsCancelled}" />
                                 </VerticalStackLayout>
                             </Grid>
                         </Border>

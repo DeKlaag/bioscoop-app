@@ -29,6 +29,12 @@
                     HorizontalOptions="Center" />
 
                 <Button
+                    Text="Check-in scanner"
+                    SemanticProperties.Hint="Scan reservering-QR-codes om in te checken"
+                    Clicked="OnCheckInScannerClicked"
+                    HorizontalOptions="Center" />
+
+                <Button
                     x:Name="LogoutBtn"
                     Text="Log Out"
                     SemanticProperties.Hint="Click to log out"
