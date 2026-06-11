@@ -1,5 +1,6 @@
 using Microsoft.Maui.Controls.Maps;
 using Microsoft.Maui.Maps;
+using AppMap = Microsoft.Maui.ApplicationModel.Map;
 
 namespace bioscoop_app.Views;
 
@@ -49,13 +50,43 @@ public partial class MapPage : ContentPage
     {
         foreach (var cinema in PatheCinemas)
         {
-            map.Pins.Add(new Pin
+            var pin = new Pin
             {
                 Label = cinema.Name,
                 Address = cinema.Address,
                 Type = PinType.Place,
                 Location = new Location(cinema.Lat, cinema.Lng),
-            });
+            };
+            pin.InfoWindowClicked += OnCinemaInfoWindowClicked;
+            map.Pins.Add(pin);
+        }
+    }
+
+    private async void OnCinemaInfoWindowClicked(object? sender, PinClickedEventArgs e)
+    {
+        if (sender is not Pin pin || pin.Location is null)
+        {
+            return;
+        }
+
+        e.HideInfoWindow = true;
+
+        var options = new MapLaunchOptions
+        {
+            Name = pin.Label,
+            NavigationMode = NavigationMode.Driving,
+        };
+
+        try
+        {
+            await AppMap.OpenAsync(pin.Location, options);
+        }
+        catch (Exception)
+        {
+            await DisplayAlertAsync(
+                "Navigatie",
+                "Kon de kaart-app niet openen voor de routebeschrijving.",
+                "OK");
         }
     }
 

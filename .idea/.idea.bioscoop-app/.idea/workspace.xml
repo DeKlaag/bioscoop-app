@@ -10,20 +10,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d76daa41-e172-4ec9-931a-41abbcf62149" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AppShell.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Constants.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiProgram.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/ReservationModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/ReservationModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platforms/Android/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Platforms/Android/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platforms/MacCatalyst/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Platforms/MacCatalyst/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Platforms/iOS/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Platforms/iOS/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/IReservationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/IReservationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/ReservationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/ReservationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ViewModels/ReservationsViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ViewModels/ReservationsViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/ProfilePage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/ProfilePage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/ProfilePage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/ProfilePage.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Views/ReservationsPage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/ReservationsPage.xaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bioscoop-app.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/bioscoop-app.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/MapPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MapPage.xaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +106,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="macOS.bioscoop-app">
+  <component name="RunManager" selected="iOS.bioscoop-app">
     <configuration name="bioscoop-app" type="XamarinIOSProject" factoryName="Xamarin.iOS">
       <option name="PROJECT_PATH" value="$PROJECT_DIR$/bioscoop-app.csproj" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -295,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781003639001</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="cr code and checkin, update cancel">
+      <option name="closed" value="true" />
+      <created>1781116918910</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1781116918910</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,7 +328,8 @@
     <MESSAGE value="choose seat" />
     <MESSAGE value="feat: order flow" />
     <MESSAGE value="reservation overview" />
-    <option name="LAST_COMMIT_MESSAGE" value="reservation overview" />
+    <MESSAGE value="cr code and checkin, update cancel" />
+    <option name="LAST_COMMIT_MESSAGE" value="cr code and checkin, update cancel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
