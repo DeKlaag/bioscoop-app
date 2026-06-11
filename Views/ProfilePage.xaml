@@ -35,6 +35,12 @@
                     HorizontalOptions="Center" />
 
                 <Button
+                    Text="Meldingen"
+                    SemanticProperties.Hint="Beheer je meldingsvoorkeuren"
+                    Clicked="OnNotificationPreferencesClicked"
+                    HorizontalOptions="Center" />
+
+                <Button
                     x:Name="LogoutBtn"
                     Text="Log Out"
                     SemanticProperties.Hint="Click to log out"

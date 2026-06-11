@@ -10,7 +10,14 @@
   <component name="ChangeListManager">
     <list default="true" id="d76daa41-e172-4ec9-931a-41abbcf62149" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.bioscoop-app/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/App.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AppShell.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AppShell.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MauiProgram.cs" beforeDir="false" afterPath="$PROJECT_DIR$/MauiProgram.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Platforms/Android/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Platforms/Android/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Views/MapPage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/MapPage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/ProfilePage.xaml" beforeDir="false" afterPath="$PROJECT_DIR$/Views/ProfilePage.xaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Views/ProfilePage.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Views/ProfilePage.xaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bioscoop-app.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/bioscoop-app.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -290,7 +297,15 @@
       <option name="project" value="LOCAL" />
       <updated>1781116918910</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="route">
+      <option name="closed" value="true" />
+      <created>1781176769156</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1781176769156</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,7 +344,8 @@
     <MESSAGE value="feat: order flow" />
     <MESSAGE value="reservation overview" />
     <MESSAGE value="cr code and checkin, update cancel" />
-    <option name="LAST_COMMIT_MESSAGE" value="cr code and checkin, update cancel" />
+    <MESSAGE value="route" />
+    <option name="LAST_COMMIT_MESSAGE" value="route" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

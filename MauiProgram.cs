@@ -5,6 +5,7 @@ using bioscoop_app.Services;
 using bioscoop_app.ViewModels;
 using bioscoop_app.Views;
 using BarcodeScanning;
+using Plugin.LocalNotification;
 
 namespace bioscoop_app;
 
@@ -21,7 +22,8 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             })
             .UseMauiMaps()
-            .UseBarcodeScanning();
+            .UseBarcodeScanning()
+            .UseLocalNotification();
 
 #if IOS || MACCATALYST
         SearchBarHandler.Mapper.AppendToMapping("NoNativeBackground", (handler, _) =>
@@ -48,6 +50,11 @@ public static class MauiProgram
         builder.Services.AddSingleton<IPaymentService, PaymentService>();
         builder.Services.AddSingleton<IReservationService, ReservationService>();
         builder.Services.AddSingleton<IReservationStore, ReservationStore>();
+        builder.Services.AddSingleton<INotificationPreferencesService, NotificationPreferencesService>();
+        builder.Services.AddSingleton<INotificationScheduler, NotificationScheduler>();
+        builder.Services.AddSingleton<IProximityService, ProximityService>();
+        builder.Services.AddTransient<NotificationPreferencesViewModel>();
+        builder.Services.AddTransient<NotificationPreferencesPage>();
         builder.Services.AddTransient<ReservationsViewModel>();
         builder.Services.AddTransient<ReservationsPage>();
         builder.Services.AddSingleton<MoviesViewModel>();

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:bioscoop_app.ViewModels"
+             x:Class="bioscoop_app.Views.NotificationPreferencesPage"
+             x:DataType="vm:NotificationPreferencesViewModel"
+             Shell.TabBarIsVisible="False"
+             Title="Meldingen">
+    <ScrollView>
+        <VerticalStackLayout Padding="30,20" Spacing="24">
+
+            <Label
+                Text="Kies welke meldingen je wilt ontvangen. Je kunt dit altijd aanpassen."
+                FontSize="14"
+                Opacity="0.7" />
+
+            <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto" ColumnSpacing="12">
+                <Label
+                    Grid.Row="0" Grid.Column="0"
+                    Text="Pushmelding vóór aanvang"
+                    FontSize="17" />
+                <Label
+                    Grid.Row="1" Grid.Column="0"
+                    Text="Een herinnering 30 minuten voordat je voorstelling begint, met zaal en resterende tijd."
+                    FontSize="13"
+                    Opacity="0.7" />
+                <Switch
+                    Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
+                    VerticalOptions="Center"
+                    IsToggled="{Binding NotifyBeforeShow}" />
+            </Grid>
+
+            <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto" ColumnSpacing="12">
+                <Label
+                    Grid.Row="0" Grid.Column="0"
+                    Text="Trilmelding bij aankomst"
+                    FontSize="17" />
+                <Label
+                    Grid.Row="1" Grid.Column="0"
+                    Text="Trilt en toont de zaal en resterende tijd wanneer je in de buurt van de bioscoop bent."
+                    FontSize="13"
+                    Opacity="0.7" />
+                <Switch
+                    Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
+                    VerticalOptions="Center"
+                    IsToggled="{Binding NotifyOnArrival}" />
+            </Grid>
+
+            <Button
+                Text="Stuur testmelding"
+                Command="{Binding SendTestNotificationCommand}"
+                Margin="0,8,0,0" />
+
+            <Label
+                Text="{Binding StatusMessage}"
+                FontSize="13"
+                Opacity="0.7" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
