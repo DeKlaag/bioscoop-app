@@ -4,56 +4,121 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="bioscoop_app.Views.ProfilePage"
              Shell.TabBarIsVisible="False"
-             Title="Profile"> 
+             Title="Profiel">
     <Shell.TitleView>
         <ContentView />
     </Shell.TitleView>
     <ContentPage.Content>
-        <VerticalStackLayout 
-            Padding="30,0"
-            Spacing="25">
+        <ScrollView>
+            <VerticalStackLayout Padding="20,16,20,32" Spacing="24">
 
-            <StackLayout >
-                <Image
-                    x:Name="UserPictureImg"
-                    SemanticProperties.Description="User's picture"
-                    HeightRequest="200"
-                    HorizontalOptions="Center" />
+                <!-- Profile header -->
+                <VerticalStackLayout Spacing="12" HorizontalOptions="Center">
+                    <!-- Circular avatar with initial fallback -->
+                    <Border HeightRequest="112"
+                            WidthRequest="112"
+                            HorizontalOptions="Center"
+                            StrokeThickness="2"
+                            Stroke="{StaticResource Primary}"
+                            BackgroundColor="{StaticResource SurfaceContainerHigh}"
+                            StrokeShape="RoundRectangle 56">
+                        <Grid>
+                            <Label x:Name="InitialLbl"
+                                   Text=""
+                                   FontSize="44"
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource Primary}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center" />
+                            <Image x:Name="UserPictureImg"
+                                   SemanticProperties.Description="Profielfoto"
+                                   Aspect="AspectFill" />
+                        </Grid>
+                    </Border>
 
-                <Label
-                    x:Name="UsernameLbl"
-                    Text=""
-                    SemanticProperties.HeadingLevel="Level2"
-                    SemanticProperties.Description="User's name"
-                    FontSize="18"
-                    HorizontalOptions="Center" />
+                    <Label x:Name="UsernameLbl"
+                           Text=""
+                           SemanticProperties.HeadingLevel="Level2"
+                           SemanticProperties.Description="Naam van gebruiker"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource OnSurface}"
+                           HorizontalTextAlignment="Center"
+                           HorizontalOptions="Center" />
 
-                <Button
-                    Text="Check-in scanner"
-                    SemanticProperties.Hint="Scan reservering-QR-codes om in te checken"
-                    Clicked="OnCheckInScannerClicked"
-                    HorizontalOptions="Center" />
+                    <Label x:Name="EmailLbl"
+                           Text=""
+                           FontSize="14"
+                           TextColor="{StaticResource OnSurfaceVariant}"
+                           HorizontalTextAlignment="Center"
+                           HorizontalOptions="Center" />
+                </VerticalStackLayout>
 
-                <Button
-                    Text="Meldingen"
-                    SemanticProperties.Hint="Beheer je meldingsvoorkeuren"
-                    Clicked="OnNotificationPreferencesClicked"
-                    HorizontalOptions="Center" />
+                <!-- Menu card -->
+                <Border StrokeThickness="1"
+                        Stroke="{StaticResource SurfaceContainerHigh}"
+                        BackgroundColor="{StaticResource SurfaceContainer}"
+                        StrokeShape="RoundRectangle 16">
+                    <VerticalStackLayout Spacing="0">
 
-                <Button
-                    Text="Feedback geven"
-                    SemanticProperties.Hint="Deel je feedback over de app"
-                    Clicked="OnFeedbackClicked"
-                    HorizontalOptions="Center" />
+                        <!-- Check-in scanner -->
+                        <Grid Padding="16,16" ColumnDefinitions="*,Auto" ColumnSpacing="12">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnCheckInScannerClicked" />
+                            </Grid.GestureRecognizers>
+                            <Label Grid.Column="0" Text="Check-in scanner"
+                                   FontSize="16" VerticalOptions="Center"
+                                   TextColor="{StaticResource OnSurface}" />
+                            <Label Grid.Column="1" Text="›" FontSize="22"
+                                   TextColor="{StaticResource OnSurfaceVariant}"
+                                   VerticalOptions="Center" />
+                        </Grid>
 
+                        <BoxView HeightRequest="1" Color="{StaticResource SurfaceContainerHigh}" />
+
+                        <!-- Meldingen -->
+                        <Grid Padding="16,16" ColumnDefinitions="*,Auto" ColumnSpacing="12">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnNotificationPreferencesClicked" />
+                            </Grid.GestureRecognizers>
+                            <Label Grid.Column="0" Text="Meldingen"
+                                   FontSize="16" VerticalOptions="Center"
+                                   TextColor="{StaticResource OnSurface}" />
+                            <Label Grid.Column="1" Text="›" FontSize="22"
+                                   TextColor="{StaticResource OnSurfaceVariant}"
+                                   VerticalOptions="Center" />
+                        </Grid>
+
+                        <BoxView HeightRequest="1" Color="{StaticResource SurfaceContainerHigh}" />
+
+                        <!-- Feedback -->
+                        <Grid Padding="16,16" ColumnDefinitions="*,Auto" ColumnSpacing="12">
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnFeedbackClicked" />
+                            </Grid.GestureRecognizers>
+                            <Label Grid.Column="0" Text="Feedback geven"
+                                   FontSize="16" VerticalOptions="Center"
+                                   TextColor="{StaticResource OnSurface}" />
+                            <Label Grid.Column="1" Text="›" FontSize="22"
+                                   TextColor="{StaticResource OnSurfaceVariant}"
+                                   VerticalOptions="Center" />
+                        </Grid>
+
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- Logout -->
                 <Button
                     x:Name="LogoutBtn"
-                    Text="Log Out"
-                    SemanticProperties.Hint="Click to log out"
+                    Text="Uitloggen"
+                    SemanticProperties.Hint="Klik om uit te loggen"
                     Clicked="OnLogoutClicked"
-                    HorizontalOptions="Center" />
+                    BackgroundColor="Transparent"
+                    TextColor="{StaticResource Error}"
+                    BorderColor="{StaticResource Error}"
+                    BorderWidth="1" />
 
-            </StackLayout>
-        </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

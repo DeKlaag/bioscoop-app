@@ -22,13 +22,25 @@ public partial class ProfilePage
         var user = _session.User;
         if (user?.Identity is { IsAuthenticated: true })
         {
-            UsernameLbl.Text = user.Identity.Name ?? string.Empty;
-            UserPictureImg.Source = user.Claims
+            var name = user.Identity.Name ?? string.Empty;
+            UsernameLbl.Text = name;
+
+            EmailLbl.Text = user.Claims
+                .FirstOrDefault(c => c.Type == "email")?.Value ?? string.Empty;
+
+            InitialLbl.Text = string.IsNullOrWhiteSpace(name)
+                ? "?"
+                : name.Trim()[..1].ToUpperInvariant();
+
+            var picture = user.Claims
                 .FirstOrDefault(c => c.Type == "picture")?.Value;
+            UserPictureImg.Source = picture;
+            // Keep the initial visible as a fallback when there's no picture.
+            UserPictureImg.IsVisible = !string.IsNullOrWhiteSpace(picture);
         }
     }
 
-    private async void OnCheckInScannerClicked(object sender, EventArgs e)
+    private async void OnCheckInScannerClicked(object sender, TappedEventArgs e)
     {
         // Ask for camera access BEFORE opening the scanner page, so the camera view
         // is only ever created once permission is granted (creating it without
@@ -47,12 +59,12 @@ public partial class ProfilePage
         await Shell.Current.GoToAsync(nameof(CheckInScannerPage));
     }
 
-    private async void OnNotificationPreferencesClicked(object sender, EventArgs e)
+    private async void OnNotificationPreferencesClicked(object sender, TappedEventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(NotificationPreferencesPage));
     }
 
-    private async void OnFeedbackClicked(object sender, EventArgs e)
+    private async void OnFeedbackClicked(object sender, TappedEventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(FeedbackPage));
     }

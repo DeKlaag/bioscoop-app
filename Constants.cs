@@ -2,8 +2,8 @@ namespace bioscoop_app;
 
 public static class Constants
 {
-    // public static string LocalhostUrl = "192.168.178.107";
-    public static string LocalhostUrl = "192.168.178.129";
+    public static string LocalhostUrl = "192.168.178.107";
+    // public static string LocalhostUrl = "192.168.178.129";
     public static string Scheme = "http";
     public static string Port = "5033";
     public static string UpcomingMoviesUrl = $"{Scheme}://{LocalhostUrl}:{Port}/api/movies/upcoming";
