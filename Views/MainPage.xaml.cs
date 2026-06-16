@@ -4,12 +4,12 @@ namespace bioscoop_app;
 
 public partial class MainPage : ContentPage
 {
-    private readonly MoviesViewModel _vm;
+    private readonly HomeViewModel _vm;
 
-    public MainPage(MoviesViewModel moviesViewModel)
+    public MainPage(HomeViewModel homeViewModel)
     {
         InitializeComponent();
-        BindingContext = _vm = moviesViewModel;
+        BindingContext = _vm = homeViewModel;
     }
 
     protected override async void OnAppearing()

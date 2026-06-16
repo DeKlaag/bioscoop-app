@@ -4,22 +4,104 @@
              xmlns:vm="clr-namespace:bioscoop_app.ViewModels"
              xmlns:models="clr-namespace:bioscoop_app.Models"
              x:Class="bioscoop_app.MainPage"
-             x:DataType="vm:MoviesViewModel"
+             x:DataType="vm:HomeViewModel"
              Title="Home">
-    <ScrollView>
-      <VerticalStackLayout>
-          
-          <SearchBar HorizontalOptions="Fill"
-                     Placeholder="Search movies"
-                     Text="{Binding SearchText}"
-                     BackgroundColor="Transparent"
-                     HeightRequest="56"
-                     Margin="12,16,12,4"/>
+    <RefreshView IsRefreshing="{Binding IsBusy}"
+                 Command="{Binding LoadCommand}">
+      <ScrollView>
+        <VerticalStackLayout x:Name="root" Spacing="8">
 
-          <RefreshView IsRefreshing="{Binding IsBusy}"
-                       Command="{Binding LoadCommand}">
+            <!-- Aanbevolen voor jou -->
+            <VerticalStackLayout Spacing="8"
+                                 Margin="20,16,20,0"
+                                 IsVisible="{Binding HasRecommendations}">
+                <Label Text="Aanbevolen voor jou"
+                       Style="{StaticResource SubHeadline}" />
+                <CollectionView ItemsSource="{Binding Recommended}"
+                                HeightRequest="240">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal"
+                                           ItemSpacing="12" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:MovieModel">
+                            <VerticalStackLayout Padding="0" Spacing="6" WidthRequest="140">
+                                <VerticalStackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                        Command="{Binding Source={x:Reference root}, Path=BindingContext.SelectMovieCommand}"
+                                        CommandParameter="{Binding .}" />
+                                </VerticalStackLayout.GestureRecognizers>
+                                <Image Source="{Binding ImageUrl}"
+                                       Aspect="AspectFit"
+                                       HeightRequest="200" />
+                                <Label Text="{Binding Title}"
+                                       FontAttributes="Bold"
+                                       FontSize="13"
+                                       MaxLines="2"
+                                       LineBreakMode="TailTruncation" />
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+
+            <!-- Biedingen & acties -->
+            <VerticalStackLayout Spacing="8"
+                                 Margin="20,16,20,0"
+                                 IsVisible="{Binding HasOffers}">
+                <Label Text="Biedingen &amp; acties"
+                       Style="{StaticResource SubHeadline}" />
+                <CollectionView ItemsSource="{Binding Offers}"
+                                HeightRequest="180">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal"
+                                           ItemSpacing="12" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:OfferModel">
+                            <Border WidthRequest="260"
+                                    BackgroundColor="{StaticResource SurfaceContainer}"
+                                    Stroke="{StaticResource SurfaceContainerHigh}"
+                                    StrokeThickness="1"
+                                    Padding="14">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="14" />
+                                </Border.StrokeShape>
+                                <VerticalStackLayout Spacing="6">
+                                    <Label Text="{Binding Badge}"
+                                           Style="{StaticResource LabelCaps}"
+                                           TextColor="{StaticResource Primary}"
+                                           IsVisible="{Binding HasBadge}" />
+                                    <Label Text="{Binding Title}"
+                                           FontAttributes="Bold"
+                                           FontSize="16"
+                                           MaxLines="2"
+                                           LineBreakMode="TailTruncation" />
+                                    <Label Text="{Binding Description}"
+                                           FontSize="13"
+                                           Opacity="0.8"
+                                           MaxLines="3"
+                                           LineBreakMode="TailTruncation" />
+                                    <Label Text="{Binding ValidUntilText}"
+                                           FontSize="11"
+                                           Opacity="0.6" />
+                                </VerticalStackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+
+            <!-- Alle films -->
+            <SearchBar HorizontalOptions="Fill"
+                       Placeholder="Search movies"
+                       Text="{Binding SearchText}"
+                       BackgroundColor="Transparent"
+                       HeightRequest="56"
+                       Margin="12,16,12,4"/>
+
             <CollectionView x:Name="collectionView"
-                            Margin="20"
+                            Margin="20,0,20,20"
                             ItemsSource="{Binding Movies}">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical"
@@ -46,9 +128,9 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </RefreshView>
 
-      </VerticalStackLayout>
-    </ScrollView>
+        </VerticalStackLayout>
+      </ScrollView>
+    </RefreshView>
 
 </ContentPage>

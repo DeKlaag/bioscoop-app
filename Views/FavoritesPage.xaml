@@ -9,6 +9,21 @@
     <ScrollView>
       <VerticalStackLayout>
 
+          <Grid ColumnDefinitions="*,*"
+                ColumnSpacing="12"
+                Margin="20,16,20,0">
+              <VerticalStackLayout Grid.Column="0" Spacing="4">
+                  <Label Text="Genre" Style="{StaticResource LabelCaps}" />
+                  <Picker ItemsSource="{Binding Genres}"
+                          SelectedItem="{Binding SelectedGenre}" />
+              </VerticalStackLayout>
+              <VerticalStackLayout Grid.Column="1" Spacing="4">
+                  <Label Text="Sorteren" Style="{StaticResource LabelCaps}" />
+                  <Picker ItemsSource="{Binding SortOptions}"
+                          SelectedItem="{Binding SortOption}" />
+              </VerticalStackLayout>
+          </Grid>
+
           <RefreshView IsRefreshing="{Binding IsBusy}"
                        Command="{Binding LoadCommand}">
             <CollectionView x:Name="collectionView"

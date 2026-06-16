@@ -41,6 +41,12 @@
                     HorizontalOptions="Center" />
 
                 <Button
+                    Text="Feedback geven"
+                    SemanticProperties.Hint="Deel je feedback over de app"
+                    Clicked="OnFeedbackClicked"
+                    HorizontalOptions="Center" />
+
+                <Button
                     x:Name="LogoutBtn"
                     Text="Log Out"
                     SemanticProperties.Hint="Click to log out"

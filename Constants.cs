@@ -2,7 +2,8 @@ namespace bioscoop_app;
 
 public static class Constants
 {
-    public static string LocalhostUrl = "192.168.178.107";
+    // public static string LocalhostUrl = "192.168.178.107";
+    public static string LocalhostUrl = "192.168.178.129";
     public static string Scheme = "http";
     public static string Port = "5033";
     public static string UpcomingMoviesUrl = $"{Scheme}://{LocalhostUrl}:{Port}/api/movies/upcoming";
@@ -17,6 +18,7 @@ public static class Constants
     public static string ReservationsWebsiteUrl = $"{Scheme}://{LocalhostUrl}:{Port}/api/reservations/website";
     public static string StripeCheckoutUrl = $"{Scheme}://{LocalhostUrl}:{Port}/api/stripe/checkout";
     public static string StripeConfirmUrl = $"{Scheme}://{LocalhostUrl}:{Port}/api/stripe/confirm";
+    public static string FeedbackUrl = $"{Scheme}://{LocalhostUrl}:{Port}/api/feedback";
 
     public static string ScreeningSeatsUrl(Guid screeningId) =>
         $"{Scheme}://{LocalhostUrl}:{Port}/api/screenings/{screeningId}/seats";

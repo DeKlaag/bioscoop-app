@@ -46,6 +46,9 @@ public static class MauiProgram
         builder.Services.AddSingleton<IMovieService, MovieService>();
         builder.Services.AddSingleton<IScreeningService, ScreeningService>();
         builder.Services.AddSingleton<IFavoritesService, FavoritesService>();
+        builder.Services.AddSingleton<IRecommendationService, RecommendationService>();
+        builder.Services.AddSingleton<IOfferService, OfferService>();
+        builder.Services.AddSingleton<IFeedbackService, FeedbackService>();
         builder.Services.AddSingleton<ITariffService, TariffService>();
         builder.Services.AddSingleton<IPaymentService, PaymentService>();
         builder.Services.AddSingleton<IReservationService, ReservationService>();
@@ -57,8 +60,11 @@ public static class MauiProgram
         builder.Services.AddTransient<NotificationPreferencesPage>();
         builder.Services.AddTransient<ReservationsViewModel>();
         builder.Services.AddTransient<ReservationsPage>();
+        builder.Services.AddSingleton<HomeViewModel>();
         builder.Services.AddSingleton<MoviesViewModel>();
         builder.Services.AddSingleton<MoviesPage>();
+        builder.Services.AddTransient<FeedbackViewModel>();
+        builder.Services.AddTransient<FeedbackPage>();
         builder.Services.AddSingleton<FavoritesViewModel>();
         builder.Services.AddSingleton<FavoritesPage>();
         builder.Services.AddTransient<MovieDetailViewModel>();

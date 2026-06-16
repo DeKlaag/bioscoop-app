@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:bioscoop_app.ViewModels"
+             x:Class="bioscoop_app.Views.FeedbackPage"
+             x:DataType="vm:FeedbackViewModel"
+             Shell.TabBarIsVisible="False"
+             Title="Feedback">
+    <ScrollView>
+        <VerticalStackLayout Padding="30,20" Spacing="24">
+
+            <Label Text="Feedback geven"
+                   Style="{StaticResource SubHeadline}" />
+
+            <Label Text="Laat ons weten wat je van de app vindt. We waarderen je mening!"
+                   FontSize="14"
+                   Opacity="0.7" />
+
+            <VerticalStackLayout Spacing="8">
+                <Label Text="Categorie" Style="{StaticResource LabelCaps}" />
+                <Picker ItemsSource="{Binding Categories}"
+                        SelectedItem="{Binding SelectedCategory}" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="8">
+                <Label Text="Beoordeling" Style="{StaticResource LabelCaps}" />
+                <Picker ItemsSource="{Binding Ratings}"
+                        SelectedItem="{Binding Rating}" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="8">
+                <Label Text="Bericht" Style="{StaticResource LabelCaps}" />
+                <Editor Placeholder="Vertel ons wat je denkt..."
+                        Text="{Binding Message}"
+                        AutoSize="TextChanges"
+                        HeightRequest="140" />
+            </VerticalStackLayout>
+
+            <Button Text="Versturen"
+                    Command="{Binding SubmitCommand}" />
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}"
+                               HorizontalOptions="Center" />
+
+            <Label Text="{Binding StatusMessage}"
+                   FontSize="14"
+                   Opacity="0.8"
+                   HorizontalTextAlignment="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

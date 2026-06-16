@@ -1,0 +1,10 @@
+[
+  {
+    "id": "tuesday-half-price",
+    "title": "Halve prijs op dinsdag",
+    "description": "Elke dinsdag betaal je de halve prijs voor alle voorstellingen.",
+    "badge": "Actie",
+    "imageUrl": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&q=80",
+    "validUntil": null
+  }
+]

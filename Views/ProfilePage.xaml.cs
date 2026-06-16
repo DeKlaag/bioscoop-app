@@ -52,6 +52,11 @@ public partial class ProfilePage
         await Shell.Current.GoToAsync(nameof(NotificationPreferencesPage));
     }
 
+    private async void OnFeedbackClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(FeedbackPage));
+    }
+
     private async void OnLogoutClicked(object sender, EventArgs e)
     {
         await _auth0Client.LogoutAsync();

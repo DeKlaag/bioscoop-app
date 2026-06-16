@@ -21,6 +21,7 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(EditSeatsPage), typeof(EditSeatsPage));
         Routing.RegisterRoute(nameof(CheckInScannerPage), typeof(CheckInScannerPage));
         Routing.RegisterRoute(nameof(NotificationPreferencesPage), typeof(NotificationPreferencesPage));
+        Routing.RegisterRoute(nameof(FeedbackPage), typeof(FeedbackPage));
         Navigated += OnShellNavigated;
     }
 

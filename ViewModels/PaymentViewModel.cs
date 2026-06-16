@@ -31,6 +31,7 @@ public partial class PaymentViewModel : ObservableObject
 
     // The screening these seats belong to (used for the header).
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(HasDiscount))]
     private ScreeningModel? _screening;
 
     [ObservableProperty]
@@ -52,11 +53,28 @@ public partial class PaymentViewModel : ObservableObject
     public int SeatCount => Seats?.Count ?? 0;
 
     public string TotalPriceLabel =>
-        FormatPrice(SeatSelections.Sum(s => s.SelectedTariff?.Price ?? 0m));
+        FormatPrice(SeatSelections.Sum(s => s.EffectivePrice ?? 0m));
+
+    // True when the chosen screening falls on a Tuesday (cinema-local), so the
+    // "half price" promotion applies. Drives the discount note on the payment screen.
+    public bool HasDiscount => Screening is not null && IsHalfPriceDay(Screening);
+
+    public string DiscountNote => "Dinsdagvoordeel: halve prijs op alle voorstellingen";
 
     private static string FormatPrice(decimal price) => $"€ {price:0.00}";
 
+    // The screening start arrives as UTC; the promotion is based on the cinema's local day.
+    private static bool IsHalfPriceDay(ScreeningModel screening)
+    {
+        var utc = screening.StartTime.Kind == DateTimeKind.Unspecified
+            ? DateTime.SpecifyKind(screening.StartTime, DateTimeKind.Utc)
+            : screening.StartTime.ToUniversalTime();
+        return utc.ToLocalTime().DayOfWeek == DayOfWeek.Tuesday;
+    }
+
     partial void OnSeatsChanged(List<SeatModel>? value) => BuildSelections();
+
+    partial void OnScreeningChanged(ScreeningModel? value) => BuildSelections();
 
     private async Task LoadTariffsAsync()
     {
@@ -87,10 +105,11 @@ public partial class PaymentViewModel : ObservableObject
             existing.TariffChanged -= OnSelectionChanged;
         SeatSelections.Clear();
 
+        var halfPrice = Screening is not null && IsHalfPriceDay(Screening);
         var defaultTariff = Tariffs.FirstOrDefault();
         foreach (var seat in Seats)
         {
-            var selection = new SeatTariffSelection(seat, Tariffs)
+            var selection = new SeatTariffSelection(seat, Tariffs, halfPrice)
             {
                 SelectedTariff = defaultTariff,
             };
@@ -99,6 +118,7 @@ public partial class PaymentViewModel : ObservableObject
         }
 
         OnPropertyChanged(nameof(TotalPriceLabel));
+        OnPropertyChanged(nameof(HasDiscount));
     }
 
     private void OnSelectionChanged() => OnPropertyChanged(nameof(TotalPriceLabel));
